@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="DAWN smart toilets and intelligent bathroom solutions for global homes and projects.">
+  <title>DAWN — Intelligent Bathroom Solutions</title>
+  <style>
+    :root{
+      --ink:#0b1628;--muted:#66758a;--blue:#1267ff;--navy:#07152b;--navy-2:#0b2242;
+      --paper:#f4f7fa;--white:#fff;--line:#dce4ee;--header:78px;--max:1560px;
+      --section:clamp(88px,8vw,132px);--gutter:clamp(24px,4.5vw,84px);
+      --shadow:0 24px 70px rgba(4,25,57,.16);--ease:cubic-bezier(.22,.8,.28,1)
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:"Aptos","Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}body.menu-open{overflow:hidden}
+    a{color:inherit}button,input{font:inherit}button{color:inherit}.skip{position:fixed;left:16px;top:-60px;z-index:100;background:#fff;padding:12px 18px;border-radius:6px}.skip:focus{top:16px}.wrap{width:min(calc(100% - (var(--gutter) * 2)),var(--max));margin-inline:auto}.eyebrow{display:block;color:var(--blue);font-size:11px;font-weight:750;letter-spacing:.15em;text-transform:uppercase}.display{font-size:clamp(44px,5.1vw,84px);line-height:.93;letter-spacing:-.065em;text-wrap:balance}.section-title{margin:14px 0 0;font-size:clamp(36px,3.5vw,58px);line-height:1.02;letter-spacing:-.045em;text-wrap:balance}.body-copy{color:var(--muted);font-size:clamp(15px,1.1vw,18px);line-height:1.7;text-wrap:pretty}.btn{display:inline-flex;min-height:44px;align-items:center;justify-content:center;padding:0 22px;border:1px solid transparent;border-radius:5px;background:var(--blue);color:#fff;text-decoration:none;font-size:13px;font-weight:700;transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s}.btn:hover{transform:translateY(-2px);background:#0756df}.btn:active{transform:translateY(0) scale(.98)}:focus-visible{outline:3px solid rgba(18,103,255,.35);outline-offset:3px}
+
+    /* Navigation */
+    .mobile-nav{display:none}
+    .site-header{position:sticky;top:0;z-index:50;height:var(--header);background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(12,30,56,.08)}
+    .nav-row{height:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:30px}.brand{display:inline-flex;align-items:center;gap:13px;width:max-content;text-decoration:none;font-size:26px;font-weight:800;letter-spacing:.14em}.brand img{width:46px;height:46px;object-fit:contain}.nav-links{display:flex;align-items:center;gap:34px;height:100%}.nav-link,.products-trigger{position:relative;height:100%;display:flex;align-items:center;border:0;background:none;padding:0;color:#1e2b3d;text-decoration:none;font-size:14px;cursor:pointer}.nav-link:after,.products-trigger:after{content:"";position:absolute;left:0;right:100%;bottom:18px;height:2px;background:var(--blue);transition:right .25s}.nav-link:hover:after,.products-trigger:hover:after,.products-wrap.open .products-trigger:after{right:0}.products-trigger:before{content:"+";position:absolute;right:-16px;color:#8390a1;transition:transform .25s}.products-wrap.open .products-trigger:before{transform:rotate(45deg)}.nav-actions{display:flex;justify-content:flex-end}.menu-toggle{display:none;border:0;background:transparent;width:44px;height:44px;font-size:22px}.mega{position:fixed;left:0;right:0;top:var(--header);z-index:45;background:rgba(255,255,255,.985);border-top:1px solid var(--line);box-shadow:0 24px 44px rgba(5,27,57,.12);opacity:0;visibility:hidden;transform:translateY(-16px);transition:opacity .28s,var(--ease) .28s transform,visibility .28s}.products-wrap.open .mega{opacity:1;visibility:visible;transform:none}.mega-inner{width:min(calc(100% - (var(--gutter) * 2)),1400px);margin:auto;padding:30px 0 40px}.mega-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}.mega-head strong{font-size:24px;letter-spacing:-.03em}.mega-head span{color:var(--muted);font-size:12px}.mega-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.mega-card{position:relative;min-height:205px;overflow:hidden;background:#dce5ee;text-decoration:none}.mega-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .55s var(--ease)}.mega-card:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(1,10,24,.75))}.mega-card span{position:absolute;z-index:2;left:20px;right:20px;bottom:18px;color:#fff;font-size:18px;font-weight:700}.mega-card:hover img{transform:scale(1.045)}.mega-card:hover span{color:#b9d5ff}
+
+    /* Hero */
+    .hero{position:relative;height:calc(100dvh - var(--header));min-height:620px;overflow:hidden;background:var(--navy)}.hero-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .8s var(--ease),visibility .8s}.hero-slide.active{opacity:1;visibility:visible}.hero-media{position:absolute;inset:0;background-position:center;background-size:cover;transform:scale(1.02);transition:transform 8s ease}.hero-slide.active .hero-media{transform:scale(1)}.hero-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,13,28,.78) 0,rgba(3,13,28,.4) 40%,rgba(3,13,28,.08) 72%),linear-gradient(0deg,rgba(2,12,28,.32),transparent 48%)}.hero-copy{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;width:min(calc(100% - (var(--gutter) * 2)),var(--max));margin:auto;color:#fff}.hero-copy>*{max-width:710px}.hero-copy .eyebrow{color:#85b8ff}.hero-copy h1{margin:20px 0 24px}.hero-copy p{margin:0 0 34px;color:#dbe5f2;max-width:600px}.hero-actions{display:flex;gap:10px}.btn.ghost{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.62)}.btn.ghost:hover{background:#fff;color:var(--ink)}.hero-control{position:absolute;z-index:4;top:50%;width:48px;height:48px;border:1px solid rgba(255,255,255,.5);background:rgba(4,18,40,.16);color:#fff;border-radius:50%;cursor:pointer;transition:background .25s,transform .25s}.hero-control:hover{background:rgba(4,18,40,.7);transform:scale(1.04)}.hero-prev{left:24px}.hero-next{right:24px}.hero-dots{position:absolute;z-index:4;left:50%;bottom:28px;display:flex;gap:10px;transform:translateX(-50%)}.hero-dot{width:34px;height:3px;border:0;padding:0;background:rgba(255,255,255,.45);cursor:pointer}.hero-dot.active{background:#fff}.hero-1 .hero-media{background-image:url("company-building-updated.jpg");background-position:center 48%}.hero-2 .hero-media{background-image:url("wallhung-scene.jpg");background-position:center}.hero-3 .hero-media{background-image:url("collection-801-color.jpg");background-position:center 56%}
+
+    /* Keep hero text in a dedicated foreground layer in both preview and edit modes. */
+    .hero-copy{position:absolute;inset:0;pointer-events:none}.hero-copy>*{pointer-events:auto}
+
+    /* Categories */
+    .categories{padding:var(--section) 0 calc(var(--section) + 18px);background:#fff}.section-intro{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:46px}.section-intro>div{max-width:950px}.section-intro .body-copy{max-width:430px;margin:0}.category-grid{height:min(68vw,820px);min-height:650px;display:grid;grid-template-columns:1.34fr 1.1fr .88fr;grid-template-rows:1fr 1fr;gap:14px}.category-card{position:relative;overflow:hidden;background:#dce4eb;color:#fff;text-decoration:none}.category-card:nth-child(1),.category-card:nth-child(2){grid-row:1/3}.category-card img{width:100%;height:100%;object-fit:cover;transition:transform .65s var(--ease),filter .45s}.category-card:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(4,13,25,.62))}.category-card h3{position:absolute;z-index:2;left:20px;right:20px;bottom:7%;margin:0;text-align:center;font-size:clamp(22px,2vw,36px);line-height:1.05;letter-spacing:-.04em;text-wrap:balance}.category-card:hover img{transform:scale(1.035);filter:saturate(1.04)}
+
+    /* Full image feature */
+    .wall-feature{position:relative;min-height:min(67vw,920px);background:#302b28 url("wallhung-fullscreen-final.jpg") center/cover no-repeat;color:#fff;overflow:hidden}.wall-feature:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,10,16,.6),rgba(4,10,16,.13) 46%,rgba(4,10,16,.04)),linear-gradient(0deg,rgba(4,10,16,.22),transparent 48%)}.wall-copy{position:relative;z-index:2;min-height:inherit;display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding-top:clamp(72px,8vw,132px)}.wall-copy h2{max-width:680px;margin:0 0 22px}.wall-copy p{max-width:620px;margin:0;color:#eef3f0;font-size:clamp(16px,1.25vw,20px);line-height:1.55}
+
+    /* Technology */
+    .technology{padding:var(--section) 0 calc(var(--section) + 10px);background:var(--navy);color:#fff}.technology .section-intro{margin-bottom:52px}.technology .section-title{max-width:900px}.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(165,190,224,.22)}.tech-card{padding:24px;border-right:1px solid rgba(165,190,224,.22);display:grid;grid-template-rows:auto auto;align-content:start;gap:22px}.tech-card:last-child{border-right:0}.tech-card img{width:100%;aspect-ratio:1.45/1;object-fit:cover;background:#c9d8e7}.tech-card h3{margin:0 0 10px;font-size:clamp(21px,1.7vw,30px);letter-spacing:-.035em}.tech-card p{margin:0;color:#aebbd0;font-size:14px;line-height:1.55;text-wrap:pretty}
+
+    /* Proof */
+    .proof{padding:var(--section) 0;background:#fff}.proof .section-intro{margin-bottom:42px}.proof-layout{display:grid;grid-template-columns:1.55fr .9fr;gap:16px}.cert-panel{position:relative;overflow:hidden;background:linear-gradient(145deg,#102d54,#1f568c);color:#fff;padding:clamp(30px,3.8vw,58px)}.cert-panel:after{content:"";position:absolute;inset:42% -10% -25% 35%;opacity:.22;background:repeating-linear-gradient(90deg,transparent 0 48px,rgba(122,191,255,.45) 49px 50px),repeating-linear-gradient(0deg,transparent 0 48px,rgba(122,191,255,.45) 49px 50px);transform:rotate(8deg)}.proof h3{margin:12px 0 10px;font-size:clamp(30px,3vw,48px);letter-spacing:-.04em}.proof .panel-copy{position:relative;z-index:2;max-width:780px;margin:0;color:#d4e0ef;line-height:1.6}.cert-controls{position:relative;z-index:3;display:flex;justify-content:flex-end;gap:8px;margin:32px 0 12px}.round-control{width:40px;height:40px;border:1px solid rgba(255,255,255,.45);background:transparent;color:#fff;border-radius:50%;cursor:pointer}.round-control:hover{background:rgba(255,255,255,.13)}.cert-track{position:relative;z-index:3;display:flex;gap:18px;overflow:auto;padding:18px 8px 28px 4px;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab}.cert-track::-webkit-scrollbar{display:none}.cert-track.dragging{cursor:grabbing;scroll-snap-type:none}.cert-card{flex:0 0 clamp(160px,18vw,230px);border:0;padding:0;background:#fff;box-shadow:0 12px 32px rgba(2,15,34,.25);scroll-snap-align:start;cursor:zoom-in;transition:transform .32s var(--ease),box-shadow .32s}.cert-card:hover{transform:scale(1.075) translateY(-6px);box-shadow:0 22px 45px rgba(2,15,34,.4)}.cert-card img{display:block;width:100%;aspect-ratio:.715/1;object-fit:cover}.oem-panel{background:#edf3f8;padding:clamp(30px,3vw,50px);display:flex;flex-direction:column}.oem-panel .panel-copy{color:var(--muted)}.oem-panel img{width:100%;min-height:300px;object-fit:cover;margin-top:auto;padding-top:32px}.lightbox{position:fixed;inset:0;z-index:90;display:none;place-items:center;background:rgba(2,8,18,.88);padding:30px}.lightbox.open{display:grid}.lightbox img{max-width:min(90vw,900px);max-height:88vh;box-shadow:var(--shadow)}.lightbox-close{position:absolute;right:24px;top:20px;width:48px;height:48px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:transparent;color:#fff;font-size:26px;cursor:pointer}
+
+    /* Why */
+    .why{position:relative;isolation:isolate;overflow:hidden;padding:var(--section) 0 calc(var(--section) + 18px);background:#f5f9fc;text-align:center}.why:before,.why:after{content:"";position:absolute;z-index:0;left:-16%;width:132%;border-radius:48% 52% 50% 50%;pointer-events:none;will-change:transform}.why:before{top:-31%;height:54%;background:radial-gradient(ellipse at 50% 100%,rgba(87,171,229,.2) 0,rgba(146,207,241,.11) 45%,rgba(220,239,250,.03) 67%,transparent 72%);filter:blur(12px);animation:water-arc-top 14s ease-in-out infinite alternate}.why:after{bottom:-34%;height:58%;background:radial-gradient(ellipse at 46% 0,rgba(93,175,229,.18) 0,rgba(170,216,242,.09) 48%,transparent 72%);filter:blur(15px);animation:water-arc-bottom 18s ease-in-out infinite alternate-reverse}.water-motion{position:absolute;z-index:1;inset:-12% -8%;overflow:hidden;pointer-events:none;opacity:.78;filter:blur(9px)}.water-motion span{position:absolute;display:block;border-radius:50%;will-change:transform}.water-motion span:nth-child(1){left:-7%;top:34%;width:72%;height:18%;background:linear-gradient(100deg,transparent 8%,rgba(116,193,235,.08) 36%,rgba(255,255,255,.48) 52%,rgba(119,193,235,.09) 69%,transparent 92%);transform:rotate(-4deg);animation:water-current-one 16s ease-in-out infinite alternate}.water-motion span:nth-child(2){right:-13%;top:48%;width:78%;height:20%;background:linear-gradient(80deg,transparent 5%,rgba(100,183,232,.06) 30%,rgba(255,255,255,.52) 50%,rgba(113,191,234,.1) 72%,transparent 96%);transform:rotate(5deg);animation:water-current-two 20s ease-in-out infinite alternate-reverse}.water-motion span:nth-child(3){left:18%;bottom:7%;width:64%;height:16%;background:radial-gradient(ellipse,rgba(120,196,236,.12),rgba(213,237,249,.05) 52%,transparent 72%);animation:water-current-three 13s ease-in-out infinite alternate}.why-inner{position:relative;z-index:2}.why-head{max-width:830px;margin:0 auto 74px}.why-head h2{margin:16px 0 20px}.why-head .body-copy{margin-inline:auto;max-width:720px}.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(40px,7vw,110px)}.why-item{display:flex;flex-direction:column;align-items:center}.why-icon{width:108px;height:108px;margin-bottom:25px;object-fit:contain}.why-item h3{margin:0 0 14px;font-size:clamp(21px,1.8vw,28px);letter-spacing:-.025em}.why-item p{max-width:390px;margin:0;color:var(--muted);font-size:15px;line-height:1.65}.why-icon-css{position:relative}.why-icon-css:before{content:"";position:absolute;inset:19px;border:3px solid var(--ink);border-radius:34% 56% 42% 60%}.why-icon-css:after{content:"✓";position:absolute;inset:0;display:grid;place-items:center;color:var(--blue);font-size:38px;font-weight:500}@keyframes water-arc-top{0%{transform:translate3d(-2%,0,0) scale(1.02,1)}100%{transform:translate3d(5%,3%,0) scale(1.08,.94)}}@keyframes water-arc-bottom{0%{transform:translate3d(4%,0,0) scale(1.06,.96)}100%{transform:translate3d(-5%,-3%,0) scale(1,1.05)}}@keyframes water-current-one{0%{transform:translate3d(-8%,0,0) rotate(-4deg) scaleX(.94)}100%{transform:translate3d(24%,6%,0) rotate(2deg) scaleX(1.08)}}@keyframes water-current-two{0%{transform:translate3d(12%,4%,0) rotate(5deg) scaleX(1.04)}100%{transform:translate3d(-20%,-5%,0) rotate(-2deg) scaleX(.94)}}@keyframes water-current-three{0%{transform:translate3d(-6%,3%,0) scale(.95)}100%{transform:translate3d(9%,-4%,0) scale(1.12)}}
+
+    /* About */
+    .about{position:relative;min-height:min(66vw,950px);background:#accce5 url("company-hero-final.jpg") center/cover no-repeat;color:#fff}.about:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,17,38,.78) 0,rgba(2,17,38,.5) 40%,rgba(2,17,38,.07) 75%),linear-gradient(0deg,rgba(2,17,38,.35),transparent 50%)}.about-copy{position:relative;z-index:2;min-height:inherit;display:flex;justify-content:center;align-items:flex-start;flex-direction:column}.about-copy h2{margin:14px 0 22px}.about-copy p{max-width:660px;margin:0 0 14px;color:#e5edf6;font-size:clamp(15px,1.1vw,18px);line-height:1.65}.about-copy .btn{margin-top:20px}
+
+    /* Strength */
+    .strength-section{background:#fff}.strength-scroll{position:relative;height:400vh}.strength-sticky{position:sticky;top:var(--header);height:calc(100vh - var(--header));min-height:620px;overflow:hidden;background:#06172d url("factory-line-03.jpg") center/cover no-repeat;color:#fff}.strength-sticky:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,13,29,.94) 0,rgba(4,25,51,.78) 52%,rgba(4,25,51,.6))}.strength-stage{position:relative;z-index:2;height:100%;width:min(calc(100% - (var(--gutter) * 2)),1380px);margin:auto}.metric-step{position:absolute;inset:0;display:grid;grid-template-columns:.8fr 1.2fr;grid-template-rows:1fr auto;align-items:center;opacity:0;transform:translateY(80px);transition:opacity .52s var(--ease),transform .62s var(--ease);pointer-events:none}.metric-step.before{transform:translateY(-80px)}.metric-step.active{opacity:1;transform:none}.metric-label{align-self:center;max-width:460px}.metric-label .eyebrow{color:#7cc5ff}.metric-label h3{margin:20px 0 0;font-size:clamp(40px,4.5vw,70px);line-height:1;letter-spacing:-.05em}.metric-number{justify-self:end;font-variant-numeric:tabular-nums;font-size:clamp(90px,13vw,210px);font-weight:300;letter-spacing:-.075em;white-space:nowrap}.metric-number small{font-size:.26em;font-weight:600;letter-spacing:0;margin-left:8px}.metric-footer{grid-column:1/3;display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:center;border-top:1px solid rgba(255,255,255,.55);padding:24px 0 46px}.metric-index{font-size:17px}.metric-index span{color:#6f8197}.metric-description{justify-self:end;max-width:600px;margin:0;color:#c7d4e3;text-align:right;font-size:16px;line-height:1.55}.strength-progress{position:absolute;z-index:3;right:30px;top:50%;display:grid;gap:9px;transform:translateY(-50%)}.progress-dot{width:5px;height:22px;background:rgba(255,255,255,.28);border:0;padding:0;transition:height .25s,background .25s}.progress-dot.active{height:44px;background:#fff}.supporting-proof{padding:90px 0 var(--section)}.support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.support-card{text-decoration:none}.support-card img{display:block;width:100%;aspect-ratio:1.55/1;object-fit:cover;filter:saturate(.86);transition:transform .55s var(--ease),filter .35s}.support-card:hover img{transform:scale(1.015);filter:saturate(1)}.support-row{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}.support-row strong{font-size:19px}.support-row span{font-size:12px;color:var(--blue)}
+
+    /* Contact + Footer */
+    .contact-band{padding:70px 0;background:var(--blue);color:#fff}.contact-row{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}.contact-band h2{margin:0 0 12px;font-size:clamp(34px,3.2vw,52px);letter-spacing:-.04em}.contact-band p{margin:0;color:#dbe8ff;line-height:1.5}.contact-band .btn{background:#fff;color:var(--blue)}.site-footer{padding:68px 0 28px;background:#061326;color:#fff}.footer-grid{display:grid;grid-template-columns:1.4fr .7fr 1fr;gap:70px;align-items:start}.footer-brand .brand{font-size:30px}.footer-brand p{max-width:360px;color:#8998ad;font-size:13px;line-height:1.65;margin-top:20px}.footer-links{display:grid;gap:8px}.footer-links a,.footer-contact a,.footer-contact p{color:#b4c0d0;text-decoration:none;font-size:13px;line-height:1.75;margin:0}.footer-links a:hover,.footer-contact a:hover{color:#fff}.footer-title{font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin:0 0 16px;color:#fff}.socials{display:flex;gap:9px;margin-top:18px}.social{width:34px;height:34px;border:1px solid #526078;border-radius:50%;display:grid;place-items:center;text-decoration:none;color:#fff;font-size:12px}.copyright{margin-top:48px;padding-top:22px;border-top:1px solid #243148;color:#66758e;font-size:11px;display:flex;justify-content:space-between;gap:20px}.copyright a{color:#7e8ca1;text-decoration:none}
+
+    /* Requested V6 content refinements */
+    .eyebrow{display:none!important}.support-row span{color:var(--muted)}
+    .strength-scroll{height:220vh}
+    .strength-sticky{height:52vh;min-height:430px;max-height:560px}
+    .metric-label h3{margin-top:0;font-size:clamp(30px,3.4vw,52px)}
+    .metric-number{font-size:clamp(72px,9vw,145px)}
+    .metric-footer{padding:16px 0 24px}.metric-description{font-size:14px}.progress-dot.active{height:34px}
+    .category-grid{height:clamp(520px,42vw,650px);min-height:0;grid-template-columns:1.8fr .8fr .65fr}
+    .strength-sticky{height:calc(100vh - var(--header));min-height:720px;max-height:none;background:#fff;display:grid;grid-template-rows:minmax(360px,52vh) 1fr}
+    .strength-sticky:after{display:none}.strength-visual{position:relative;overflow:hidden;background:#06172d url("factory-strength-final.jpg") center/cover no-repeat;color:#fff}.strength-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,13,29,.94) 0,rgba(4,25,51,.78) 52%,rgba(4,25,51,.6))}.strength-visual .strength-stage{position:relative;z-index:2}.strength-visual .strength-progress{z-index:3}
+    .strength-sticky .supporting-proof{min-height:0;padding:18px 0 14px;background:#fff;overflow:hidden}.strength-sticky .supporting-proof>.wrap{height:100%}.strength-sticky .support-grid{height:100%;align-items:start}.strength-sticky .support-card img{aspect-ratio:1.85/1}.strength-sticky .support-row{padding:12px 0}
+    .brand-divider{min-height:230px;padding:64px var(--gutter);display:grid;place-items:center;background:#fff}.brand-divider .brand{font-size:32px;gap:16px}.brand-divider .brand img{width:74px;height:74px}
+    .strength-scroll{height:auto}.strength-sticky{position:relative;top:auto;height:auto;min-height:0;grid-template-rows:clamp(400px,52vh,560px) auto}.strength-sticky .supporting-proof{padding:28px 0 34px}
+    .footer-contact a{display:block}
+    .hero-1 .hero-media{background-image:url("hero-b661-final.jpg");background-position:center 54%}
+    .hero-2 .hero-media{background-image:url("hero-brand-final.jpg");background-position:center;filter:none}
+    .hero-2 .hero-media:after{background:linear-gradient(0deg,rgba(1,9,23,.38),transparent 34%)}
+    .hero-3 .hero-media{background-image:url("hero-showroom-final.jpg");background-position:center}
+    .hero-brand-copy{align-items:center;justify-content:flex-end;text-align:center;padding-bottom:72px}.hero-brand-copy .hero-actions{margin-top:0}
+
+    /* Dark, video-led water motion for the Why DAWN section */
+    .why{min-height:clamp(760px,82vh,980px);display:flex;align-items:center;background:#020913;color:#fff}
+    .why-video{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;pointer-events:none}
+    .why:before{z-index:1;inset:0;left:0;width:auto;height:auto;border-radius:0;background:linear-gradient(180deg,rgba(1,7,17,.54) 0%,rgba(2,11,25,.68) 48%,rgba(2,15,31,.9) 100%),linear-gradient(90deg,rgba(2,10,23,.35),transparent 35%,rgba(2,10,23,.3));filter:none;animation:none}
+    .why:after{z-index:1;left:-8%;bottom:-31%;width:116%;height:64%;border-radius:50%;background:radial-gradient(ellipse at 50% 0,rgba(20,143,221,.34),rgba(7,55,100,.2) 44%,transparent 72%);filter:blur(24px);animation:why-video-glow 10s ease-in-out infinite alternate}
+    .why-inner{z-index:3}.why-head .body-copy,.why-item p{color:#b8c8da}.why-item h3{color:#fff}.why-icon{filter:brightness(0) invert(1);opacity:.98}
+    .water-motion{z-index:2;inset:51% -12% -18%;opacity:1;filter:none;overflow:hidden;mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 100%);-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 100%)}
+    .water-motion:before{content:"";position:absolute;inset:12% -8% 0;background:repeating-linear-gradient(106deg,transparent 0 52px,rgba(82,199,255,.08) 53px 55px,transparent 56px 104px);filter:blur(.6px);animation:water-line-sweep 8s linear infinite}
+    .water-motion span{left:-10%;width:120%;height:48%;background:none!important;border-top:1.5px solid rgba(102,211,255,.55);border-radius:50%;filter:drop-shadow(0 0 7px rgba(65,185,255,.5));transform:none;will-change:transform}
+    .water-motion span:nth-child(1){top:5%;animation:water-line-a 8s ease-in-out infinite alternate}
+    .water-motion span:nth-child(2){top:17%;border-color:rgba(126,220,255,.44);animation:water-line-b 10s ease-in-out -2s infinite alternate-reverse}
+    .water-motion span:nth-child(3){top:29%;border-color:rgba(64,179,244,.58);animation:water-line-a 11s ease-in-out -4s infinite alternate}
+    .water-motion span:nth-child(4){top:41%;border-color:rgba(149,228,255,.38);animation:water-line-b 9s ease-in-out -1s infinite alternate-reverse}
+    .water-motion span:nth-child(5){top:53%;border-color:rgba(61,169,233,.52);animation:water-line-a 12s ease-in-out -5s infinite alternate}
+    .water-motion span:nth-child(6){top:65%;border-color:rgba(124,218,255,.36);animation:water-line-b 10.5s ease-in-out -3s infinite alternate-reverse}
+    .water-motion span:nth-child(7){top:77%;border-color:rgba(47,158,226,.48);animation:water-line-a 9.5s ease-in-out -6s infinite alternate}
+    @keyframes water-line-a{0%{transform:translate3d(-7%,9px,0) scaleX(.94) skewX(-3deg)}50%{transform:translate3d(2%,-9px,0) scaleX(1.03) skewX(2deg)}100%{transform:translate3d(8%,5px,0) scaleX(.97) skewX(-1deg)}}
+    @keyframes water-line-b{0%{transform:translate3d(8%,-5px,0) scaleX(1.05) skewX(3deg)}50%{transform:translate3d(-1%,10px,0) scaleX(.96) skewX(-2deg)}100%{transform:translate3d(-8%,-7px,0) scaleX(1.02) skewX(1deg)}}
+    @keyframes water-line-sweep{from{background-position:0 0}to{background-position:208px 0}}
+    @keyframes why-video-glow{to{transform:translate3d(4%,-4%,0) scale(1.08)}}
+
+    /* Visual editor */
+    .editor-toggle{position:fixed;right:18px;bottom:18px;z-index:70;border:0;border-radius:5px;background:#fff;color:var(--ink);box-shadow:0 8px 28px rgba(4,21,48,.22);padding:12px 15px;font-size:12px;font-weight:700;cursor:pointer}.editor-panel{position:fixed;right:18px;bottom:72px;z-index:70;display:none;width:280px;padding:18px;background:rgba(255,255,255,.97);box-shadow:0 20px 60px rgba(4,21,48,.25);border:1px solid var(--line)}.edit-mode .editor-panel{display:grid;gap:12px}.editor-panel strong{font-size:13px}.editor-panel label{display:grid;grid-template-columns:64px 1fr 36px;gap:8px;align-items:center;font-size:11px}.editor-panel input{width:100%}.editor-panel button{min-height:34px;border:1px solid var(--line);background:#fff;cursor:pointer}.edit-mode [data-edit-text]{outline:1px dashed rgba(18,103,255,.55);outline-offset:5px}.edit-mode [data-edit-image]{cursor:crosshair}.editor-note{font-size:10px;color:var(--muted);line-height:1.45}.edit-mode [data-edit-image].editing-image{outline:4px solid rgba(18,103,255,.65);outline-offset:-4px}
+
+    @media(max-width:1100px){
+      :root{--header:70px}.nav-row{grid-template-columns:1fr auto}.nav-links,.nav-actions .btn{display:none}.menu-toggle{display:block}.nav-actions{display:flex}.brand{font-size:23px}.brand img{width:40px;height:40px}.products-wrap.open .mega{visibility:hidden;opacity:0}.mobile-nav{position:fixed;left:0;right:0;top:var(--header);z-index:48;display:none;max-height:calc(100dvh - var(--header));overflow:auto;background:#fff;padding:24px var(--gutter) 36px;box-shadow:var(--shadow)}.mobile-nav.open{display:block}.mobile-nav>a,.mobile-products-button{display:flex;width:100%;justify-content:space-between;padding:17px 0;border:0;border-bottom:1px solid var(--line);background:none;text-decoration:none;font-size:18px}.mobile-products-grid{display:none;grid-template-columns:1fr 1fr;gap:10px;padding:14px 0}.mobile-products-grid.open{display:grid}.mobile-products-grid a{display:block;text-decoration:none}.mobile-products-grid img{width:100%;aspect-ratio:1.35/1;object-fit:cover}.mobile-products-grid span{display:block;padding:8px 0;font-weight:650;font-size:13px}.section-intro{align-items:flex-start;flex-direction:column}.category-grid{height:auto;min-height:0;grid-template-columns:1fr 1fr;grid-template-rows:repeat(2,minmax(320px,46vw))}.category-card:nth-child(1),.category-card:nth-child(2),.category-card:nth-child(3),.category-card:nth-child(4){display:block;grid-column:auto;grid-row:auto}.tech-grid{grid-template-columns:1fr 1fr}.tech-card:nth-child(2){border-right:0}.tech-card:nth-child(-n+2){border-bottom:1px solid rgba(165,190,224,.22)}.proof-layout{grid-template-columns:1fr}.oem-panel img{margin-top:20px}.wall-feature,.about{min-height:760px}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+    @media(max-width:720px){
+      :root{--gutter:20px;--section:78px}.display{font-size:clamp(45px,14vw,68px)}.hero{min-height:650px}.hero-copy{justify-content:flex-end;padding-bottom:100px}.hero-brand-copy{justify-content:flex-end;padding-bottom:70px}.hero-brand-copy .hero-actions{margin-top:0}.hero-control{display:none}.hero-copy p{font-size:15px}.category-grid{display:grid;grid-template-columns:1fr;grid-template-rows:none;gap:10px}.category-card,.category-card:nth-child(1),.category-card:nth-child(2),.category-card:nth-child(3),.category-card:nth-child(4){display:block;grid-column:auto;grid-row:auto;aspect-ratio:4/3}.category-card h3{font-size:26px}.wall-feature{min-height:720px;background-position:29% center}.wall-copy{justify-content:flex-start;padding-top:64px;padding-bottom:0}.technology .section-intro{margin-bottom:36px}.tech-grid{grid-template-columns:1fr}.tech-card,.tech-card:nth-child(2){border-right:0;border-bottom:1px solid rgba(165,190,224,.22)}.tech-card:last-child{border-bottom:0}.tech-card img{aspect-ratio:1.7/1}.cert-panel,.oem-panel{padding:28px 20px}.cert-controls{margin-top:20px}.cert-card{flex-basis:168px}.why-grid{grid-template-columns:1fr;gap:60px}.why-head{margin-bottom:58px}.about{min-height:780px;background-position:63% center}.about-copy{justify-content:flex-end;padding-bottom:66px}.strength-sticky{height:68vh;min-height:560px;max-height:none}.metric-step{grid-template-columns:1fr;grid-template-rows:auto auto 1fr auto;padding:38px 0 20px;align-content:center}.metric-label{align-self:end}.metric-label h3{font-size:clamp(34px,10vw,50px)}.metric-number{justify-self:start;align-self:start;font-size:clamp(76px,23vw,126px);margin-top:18px}.metric-footer{grid-column:1;grid-template-columns:1fr;padding:14px 0 8px;align-self:end}.metric-description{justify-self:start;text-align:left}.strength-progress{right:10px}.supporting-proof{padding:60px 0 78px}.support-grid{grid-template-columns:1fr}.contact-row{grid-template-columns:1fr}.contact-row .btn{justify-self:start}.footer-grid{grid-template-columns:1fr;gap:34px}.footer-brand{grid-column:auto}.copyright{flex-direction:column}.editor-panel{left:12px;right:12px;bottom:72px;width:auto}.editor-toggle{right:12px}.mobile-products-grid{grid-template-columns:1fr}}
+    @media(max-width:720px){.brand-divider{min-height:180px;padding:48px 20px}.brand-divider .brand{font-size:26px}.brand-divider .brand img{width:58px;height:58px}.strength-sticky{height:auto;min-height:0;grid-template-rows:clamp(400px,58vh,520px) auto}.strength-sticky .supporting-proof{padding:16px 0 22px}.strength-sticky .support-grid{display:flex;height:auto;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory}.strength-sticky .support-card{flex:0 0 78vw;scroll-snap-align:start}.strength-sticky .support-card img{aspect-ratio:2/1}.strength-sticky .support-row{padding:8px 0}.strength-sticky .support-row strong{font-size:16px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition-duration:.01ms!important}.hero-media{transform:none!important}.strength-scroll{height:auto}.strength-sticky{position:relative;top:0;height:auto;min-height:0;padding:0;display:block}.strength-visual{padding:50px var(--gutter)}.strength-stage{display:grid;gap:16px}.metric-step{position:relative;display:grid;opacity:1;transform:none;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.3)}.strength-progress{display:none}}
+
+    /* Cinematic motion layer: content stays visible until JS initializes safely. */
+    html,body{overflow-x:clip}
+    .motion-clip{overflow:hidden}.motion-ready [data-motion]{will-change:transform,opacity}
+    .motion-disabled [data-motion],.motion-disabled [data-motion]>*{transform:none!important;opacity:1!important;filter:none!important;clip-path:none!important}
+    .motion-ready .category-grid{perspective:1200px}.motion-ready .wall-feature{--motion-scale:1.08;background-image:none}
+    .motion-ready .wall-feature:before{content:"";position:absolute;inset:-5%;z-index:0;background:#302b28 url("wallhung-fullscreen-final.jpg") center/cover no-repeat;transform:scale(var(--motion-scale));will-change:transform}
+    @media(prefers-reduced-motion:reduce){[data-motion],[data-motion]>*{transform:none!important;opacity:1!important;filter:none!important;clip-path:none!important}}
+
+    /* Reference motion adaptations */
+    :root{--reference-ease:cubic-bezier(.19,1,.22,1)}
+
+    /* CodePen-inspired category reveal physics. */
+    .category-card{isolation:isolate;transform:translateZ(0)}
+    .category-card img{will-change:transform,filter;transition:transform .7s var(--reference-ease),filter .7s var(--reference-ease)}
+    .category-card:after{inset:0;z-index:1;height:200%;background:linear-gradient(180deg,transparent 20%,rgba(3,12,25,.08) 42%,rgba(3,12,25,.82) 82%,rgba(3,12,25,.94));transform:translateY(-28%);transition:transform 1.05s var(--reference-ease)}
+    .category-card h3{transition:transform .7s var(--reference-ease),letter-spacing .7s var(--reference-ease);will-change:transform}
+    .category-card:is(:hover,:focus-visible,:focus-within) img{transform:scale(1.065) translateY(-4%);filter:saturate(1.06) contrast(1.02)}
+    .category-card:is(:hover,:focus-visible,:focus-within):after{transform:translateY(-50%)}
+    .category-card:is(:hover,:focus-visible,:focus-within) h3{transform:translateY(-12px);letter-spacing:-.025em}
+
+    /* Tympanus-inspired DOM/CSS 3D certificate stage. */
+    .cert-track{position:relative;display:block;height:clamp(330px,34vw,460px);overflow:hidden;padding:0;perspective:1200px;perspective-origin:50% 48%;transform-style:preserve-3d;isolation:isolate;touch-action:pan-y;cursor:grab;scroll-snap-type:none}
+    .cert-track.dragging{cursor:grabbing;user-select:none}
+    .cert-card{position:absolute;left:50%;top:50%;width:clamp(154px,18vw,230px);height:auto;flex:none;margin:0;opacity:0;pointer-events:none;transform-style:preserve-3d;backface-visibility:hidden;will-change:transform,opacity,filter;transition:transform .78s var(--reference-ease),opacity .48s ease,filter .48s ease,box-shadow .48s ease}
+    .cert-track.dragging .cert-card,.cert-track.is-resetting .cert-card{transition:none}
+    .cert-card.is-active{pointer-events:auto;cursor:zoom-in;box-shadow:0 30px 70px rgba(2,15,34,.45)}
+    .cert-card.is-adjacent{pointer-events:auto;cursor:pointer}
+    .cert-card:hover{box-shadow:0 32px 76px rgba(2,15,34,.5)}
+    .cert-card img{pointer-events:none}
+    .cert-status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+
+    /* Get Hyped-inspired endless showroom/support rail. */
+    .supporting-proof{overflow:hidden}
+    .support-marquee-viewport{position:relative;overflow:hidden;width:100%;padding-inline:var(--gutter);mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%)}
+    .strength-sticky .supporting-proof>.wrap{width:100%;max-width:none}
+    .strength-sticky .support-grid{display:flex;width:max-content;height:auto;gap:16px;align-items:start;overflow:visible;scroll-snap-type:none;will-change:transform}
+    .strength-sticky .support-card{flex:0 0 clamp(310px,31vw,500px);scroll-snap-align:none}
+    .strength-sticky .support-card img{aspect-ratio:1.85/1}
+
+    @media(max-width:720px){
+      .category-card:is(:hover,:focus-visible,:focus-within) img{transform:scale(1.035) translateY(-2%)}
+      .category-card:is(:hover,:focus-visible,:focus-within) h3{transform:translateY(-6px)}
+      .cert-track{height:330px;perspective:850px}
+      .cert-card{width:158px}
+      .support-marquee-viewport{padding-inline:20px;mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 8%,#000 92%,transparent 100%)}
+      .strength-sticky .support-grid{display:flex;height:auto;gap:10px;overflow:visible;scroll-snap-type:none}
+      .strength-sticky .support-card{flex:0 0 78vw;scroll-snap-align:none}
+    }
+    @media(prefers-reduced-motion:reduce){.cert-track{display:flex;height:auto;gap:14px;overflow-x:auto;padding:18px 4px 28px;perspective:none;scroll-snap-type:x mandatory}.cert-card{position:relative;left:auto;top:auto;width:168px;flex:0 0 168px;opacity:1!important;filter:none!important;transform:none!important;pointer-events:auto;scroll-snap-align:start}.cert-card[data-carousel-clone]{display:none!important}}
+    @media(prefers-reduced-motion:reduce){.support-marquee-viewport{overflow:visible;padding-inline:0;mask-image:none;-webkit-mask-image:none}.strength-sticky .support-grid{display:grid;width:auto;grid-template-columns:repeat(3,1fr);transform:none!important}.support-card[data-marquee-clone]{display:none!important}}
+    @media(max-width:720px) and (prefers-reduced-motion:reduce){.strength-sticky .support-grid{grid-template-columns:1fr}.strength-sticky .support-card{width:auto;max-width:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav-row">
+      <a class="brand" href="#top" aria-label="DAWN home"><img src="dawn-logo.png" alt="DAWN logo">DAWN</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link" href="#top">Home</a>
+        <div class="products-wrap">
+          <button class="products-trigger" type="button" aria-expanded="false" aria-controls="product-mega">Products</button>
+          <div class="mega" id="product-mega">
+            <div class="mega-inner"><div class="mega-head"><strong>Bathroom collections</strong><span>Choose a category</span></div>
+              <div class="mega-grid">
+                <a class="mega-card" href="#categories"><img src="category-wallhung-final.jpg" alt="Wall-hung toilet bathroom scene"><span>Wall-hung Toilets</span></a>
+                <a class="mega-card" href="dawn-product-detail-template-simple-v2.html"><img src="category-floorstanding-final.jpg" alt="Floorstanding toilet bathroom scene"><span>Floorstanding Toilets</span></a>
+                <a class="mega-card" href="#categories"><img src="category-colorful-final.jpg" alt="Colorful smart toilet collection"><span>Colorful Toilets</span></a>
+                <a class="mega-card" href="#categories"><img src="category-bidet-seat-final.jpg" alt="Electronic bidet seat"><span>Bidet Seats</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="nav-link" href="#technology">Technology</a><a class="nav-link" href="#proof">Projects</a><a class="nav-link" href="#about">Brand</a>
+      </nav>
+      <div class="nav-actions"><a class="btn" href="#contact">Contact Us</a><button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button></div>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile navigation"><a href="#top">Home</a><button class="mobile-products-button" type="button" aria-expanded="false">Products <span>＋</span></button><div class="mobile-products-grid"><a href="#categories"><img src="category-wallhung-final.jpg" alt="Wall-hung toilet scene"><span>Wall-hung Toilets</span></a><a href="dawn-product-detail-template-simple-v2.html"><img src="category-floorstanding-final.jpg" alt="Floorstanding toilet scene"><span>Floorstanding Toilets</span></a><a href="#categories"><img src="category-colorful-final.jpg" alt="Colorful toilet scene"><span>Colorful Toilets</span></a><a href="#categories"><img src="category-bidet-seat-final.jpg" alt="Bidet seat scene"><span>Bidet Seats</span></a></div><a href="#technology">Technology</a><a href="#proof">Projects</a><a href="#about">Brand</a><a href="#contact">Contact Us</a></nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-label="Featured DAWN stories">
+      <article class="hero-slide hero-1 active"><div class="hero-media" data-edit-image></div><div class="hero-copy"><h1 class="display" data-edit-text>Floating Beauty.<br>Effortless Grace.</h1><div class="hero-actions"><a class="btn" href="#wall-feature">Explore More</a></div></div></article>
+      <article class="hero-slide hero-2"><div class="hero-media" data-edit-image></div><div class="hero-copy hero-brand-copy"><div class="hero-actions"><a class="btn" href="#about">Explore More</a></div></div></article>
+      <article class="hero-slide hero-3"><div class="hero-media" data-edit-image></div><div class="hero-copy"><h1 class="display" data-edit-text>Come and<br>Experience It.</h1><div class="hero-actions"><a class="btn" href="#proof">Explore More</a></div></div></article>
+      <button class="hero-control hero-prev" type="button" aria-label="Previous poster">←</button><button class="hero-control hero-next" type="button" aria-label="Next poster">→</button><div class="hero-dots" aria-label="Choose poster"><button class="hero-dot active" type="button" aria-label="Poster 1"></button><button class="hero-dot" type="button" aria-label="Poster 2"></button><button class="hero-dot" type="button" aria-label="Poster 3"></button></div>
+    </section>
+
+    <section class="categories" id="categories"><div class="wrap"><div class="section-intro"><div><span class="eyebrow" data-edit-text>Bathroom Collections</span><h2 class="section-title" data-edit-text>Bathroom Ceramics by Dawn</h2></div></div><div class="category-grid">
+      <a class="category-card" href="#wall-feature" data-edit-image><img src="category-wallhung-final.jpg" alt="Wall-hung toilets in a modern bathroom"><h3 data-edit-text>Wall-hung Toilets</h3></a>
+      <a class="category-card" href="dawn-product-detail-template-simple-v2.html" data-edit-image><img src="category-floorstanding-final.jpg" alt="Floorstanding smart toilet in a warm bathroom"><h3 data-edit-text>Floorstanding Toilets</h3></a>
+      <a class="category-card" href="#technology" data-edit-image><img src="category-colorful-final.jpg" alt="Colorful smart toilet collection"><h3 data-edit-text>Colorful Toilets</h3></a>
+      <a class="category-card" href="#technology" data-edit-image><img src="category-bidet-seat-final.jpg" alt="Electronic bidet seat"><h3 data-edit-text>Bidet Seats</h3></a>
+    </div></div></section>
+
+    <section class="wall-feature" id="wall-feature" data-edit-image><div class="wrap wall-copy"><h2 class="display" data-edit-text>Big Style for Small Spaces</h2><p data-edit-text>Space-saving design, effortless cleaning, and a modern look — perfect for any bathroom.</p></div></section>
+
+    <section class="technology" id="technology"><div class="wrap"><div class="section-intro"><div><span class="eyebrow" data-edit-text>Intelligent Bathroom Technology</span><h2 class="section-title" data-edit-text>Technology &amp; Innovation</h2></div></div><div class="tech-grid">
+      <article class="tech-card"><img src="technology-01-final.jpg" alt="Comfortwash cleaning technology" data-edit-image><div><h3 data-edit-text>Comfortwash</h3><p data-edit-text>Oscillating spray for complete coverage. Optional with Rearwash/Ladywash.</p></div></article>
+      <article class="tech-card"><img src="technology-02-final.jpg" alt="Vortex flush technology" data-edit-image><div><h3 data-edit-text>Vortex Flush</h3><p data-edit-text>360° swirling rinse, single-flush confidence, even under low pressure.</p></div></article>
+      <article class="tech-card"><img src="technology-03-final.jpg" alt="Waterproof sensing technology" data-edit-image><div><h3 data-edit-text>Waterproof</h3><p data-edit-text>Toe-touch to flush, no contact needed. Waterproof capacitive sensing — reliable even in wet conditions.</p></div></article>
+      <article class="tech-card"><img src="technology-04-final.jpg" alt="Hot air dryer technology" data-edit-image><div><h3 data-edit-text>Hot Air Dryer</h3><p data-edit-text>For the perfect feel-good effect, a warm air dryer can be activated after using the bidet function.</p></div></article>
+    </div></div></section>
+
+    <section class="proof" id="proof"><div class="wrap"><div class="section-intro"><div><span class="eyebrow" data-edit-text>Global Manufacturing Partner</span><h2 class="section-title" data-edit-text>Factory Direct, Custom Ready.</h2></div></div><div class="proof-layout">
+      <article class="cert-panel"><span class="eyebrow">Quality proof</span><h3 data-edit-text>Patented &amp; Certified</h3><p class="panel-copy" data-edit-text>Backed by multiple technology patents and full industry certifications, every smart toilet delivers proven performance and trusted quality.</p><div class="cert-controls"><button class="round-control cert-prev" type="button" aria-label="Previous certificate">←</button><button class="round-control cert-next" type="button" aria-label="Next certificate">→</button></div><div class="cert-track" data-cert-carousel tabindex="0" aria-label="Certificates, drag or swipe to browse"><span class="cert-status" role="status" aria-live="polite"></span>
+        <button class="cert-card" type="button"><img src="certificate-new-01.jpg" alt="DAWN product certification document"></button><button class="cert-card" type="button"><img src="cert-ce-01.jpg" alt="DAWN CE certificate 1"></button><button class="cert-card" type="button"><img src="cert-ce-02.jpg" alt="DAWN CE certificate 2"></button>
+      </div></article>
+      <article class="oem-panel"><span class="eyebrow">OEM / ODM</span><h3 data-edit-text>Full OEM/ODM Support</h3><p class="panel-copy" data-edit-text>Your dedicated smart toilet manufacturing partner.</p><img src="oem-odm-final.jpg" alt="DAWN OEM and ODM product presentation" data-edit-image></article>
+    </div></div></section>
+
+    <section class="why"><video class="why-video" autoplay loop muted playsinline preload="metadata" aria-hidden="true" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4"></video><div class="water-motion" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><div class="wrap why-inner"><div class="why-head"><span class="eyebrow" data-edit-text>Why Choose Dawn?</span><h2 class="section-title" data-edit-text>Thoughtful Design.<br>Built to Last.</h2><p class="body-copy" data-edit-text>Smart design, responsible innovation, and reliable manufacturing — bathroom solutions for global markets.</p></div><div class="why-grid">
+      <article class="why-item"><img class="why-icon" src="icon-design.svg" alt="Design and innovation icon"><h3 data-edit-text>Design &amp; Innovation</h3><p data-edit-text>Simple, smart, and modern. Form meets function in every detail.</p></article>
+      <article class="why-item"><img class="why-icon" src="icon-green.svg" alt="Sustainability and green innovation icon"><h3 data-edit-text>Sustainability &amp; Green</h3><p data-edit-text>Tech-driven, resource-smart. Energy-saving, water-efficient, and eco-conscious — comfort today, greener tomorrow.</p></article>
+      <article class="why-item"><img class="why-icon" src="icon-quality.svg" alt="Reliable quality icon"><h3 data-edit-text>Reliable Quality</h3><p data-edit-text>Quality controlled at every stage — from R&amp;D to delivery. Consistency you can count on.</p></article>
+    </div></div></section>
+
+    <section class="about" id="about" data-edit-image><div class="wrap about-copy"><span class="eyebrow" data-edit-text>About DAWN</span><h2 class="display" data-edit-text>About Dawn</h2><p data-edit-text>DAWN specializes in the R&amp;D, manufacturing, and global trade of smart toilets and bathroom products.</p><p data-edit-text>Backed by our own factory and production lines, we oversee every step — from design and assembly to quality control — to deliver reliable, comfortable, and consistent smart bathroom solutions.</p><a class="btn" href="#contact">Explore More</a></div></section>
+
+    <section class="brand-divider" aria-label="DAWN brand divider"><a class="brand" href="#top"><img src="dawn-logo.png" alt="DAWN logo">DAWN</a></section>
+
+    <section class="strength-section" aria-label="DAWN factory strength"><div class="strength-scroll"><div class="strength-sticky"><div class="strength-visual"><div class="strength-stage">
+      <article class="metric-step active" data-value="100"><div class="metric-label"><span class="eyebrow">Global Reach</span><h3 data-edit-text>Countries Covered</h3></div><div class="metric-number"><span>100</span><small>+</small></div><div class="metric-footer"><div class="metric-index">01 <span>/ 04</span></div><p class="metric-description">Serving bathroom brands, distributors and project partners across global markets.</p></div></article>
+      <article class="metric-step" data-value="2000"><div class="metric-label"><span class="eyebrow">Professional Team</span><h3 data-edit-text>R&amp;D Team</h3></div><div class="metric-number"><span>2,000</span><small>+</small></div><div class="metric-footer"><div class="metric-index">02 <span>/ 04</span></div><p class="metric-description">Product development and engineering support behind every intelligent bathroom solution.</p></div></article>
+      <article class="metric-step" data-value="450"><div class="metric-label"><span class="eyebrow">Innovation</span><h3 data-edit-text>Advanced Patents Granted</h3></div><div class="metric-number"><span>450</span><small>+</small></div><div class="metric-footer"><div class="metric-index">03 <span>/ 04</span></div><p class="metric-description">Patented technologies developed for hygiene, comfort, control and dependable performance.</p></div></article>
+      <article class="metric-step" data-value="8000"><div class="metric-label"><span class="eyebrow">Stable Delivery</span><h3 data-edit-text>Monthly Capacity</h3></div><div class="metric-number"><span>8,000</span><small>+</small></div><div class="metric-footer"><div class="metric-index">04 <span>/ 04</span></div><p class="metric-description">Flexible capacity for branded product programs, OEM/ODM and engineering projects.</p></div></article>
+    </div><div class="strength-progress" aria-hidden="true"><i class="progress-dot active"></i><i class="progress-dot"></i><i class="progress-dot"></i><i class="progress-dot"></i></div></div>
+      <div class="supporting-proof"><div class="wrap"><div class="support-marquee-viewport" data-showroom-marquee><div class="support-grid"><a class="support-card" href="#contact"><img src="factory-card-01-final.jpg" alt="DAWN smart toilet manufacturing line" data-edit-image><div class="support-row"><strong>Manufacturing</strong><span>Learn more →</span></div></a><a class="support-card" href="#contact"><img src="factory-card-02-final.jpg" alt="DAWN production and quality testing" data-edit-image><div class="support-row"><strong>Quality &amp; Testing</strong><span>Learn more →</span></div></a><a class="support-card" href="#contact"><img src="factory-card-03-final.jpg" alt="DAWN awards and global service" data-edit-image><div class="support-row"><strong>Awards &amp; Global Service</strong><span>Learn more →</span></div></a></div></div></div></div>
+    </div></div></section>
+
+    <section class="contact-band" id="contact"><div class="wrap contact-row"><div><h2 data-edit-text>Let’s Connect and Chat</h2><p data-edit-text>We welcome partners from all around the world.<br>Let’s grow together.</p></div><a class="btn" href="mailto:dawn_sanitary@163.com">Contact DAWN →</a></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="#top"><img src="dawn-logo.png" alt="DAWN logo">DAWN</a><p>Intelligent bathroom products designed, manufactured and supported for global homes and projects.</p></div><div><h3 class="footer-title">Explore</h3><div class="footer-links"><a href="#categories">Products</a><a href="#technology">Technology</a><a href="#proof">Projects</a><a href="#about">Brand</a></div></div><div class="footer-contact"><h3 class="footer-title">Contact</h3><a href="mailto:dawn_sanitary@163.com">dawn_sanitary@163.com</a><a href="tel:+8615363370978">+86 15363370978</a><div class="socials"><a class="social" href="#contact" aria-label="X / Twitter">𝕏</a><a class="social" href="#contact" aria-label="WeChat">微</a><a class="social" href="#contact" aria-label="Instagram">◎</a></div></div></div><div class="copyright"><span>© 2026 DAWN. All rights reserved.</span><span><a href="#contact">Privacy</a> · <a href="#contact">Terms</a></span></div></div></footer>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Certificate preview"><button class="lightbox-close" type="button" aria-label="Close certificate preview">×</button><img src="certificate-new-01.jpg" alt="Certificate enlarged preview"></div>
+  <button class="editor-toggle" type="button">开启编辑模式</button>
+  <aside class="editor-panel" aria-label="Visual editor"><strong>图片位置调整</strong><p class="editor-note">点击页面中的图片区域后调整。文字可直接点击输入，修改自动保存在本浏览器。</p><label>X 位置<input class="edit-x" type="range" min="0" max="100" value="50"><output class="out-x">50</output></label><label>Y 位置<input class="edit-y" type="range" min="0" max="100" value="50"><output class="out-y">50</output></label><label>缩放<input class="edit-z" type="range" min="100" max="150" value="100"><output class="out-z">100</output></label><button class="editor-reset" type="button">清除本机编辑</button></aside>
+
+  <script>
+  (()=>{
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const products=document.querySelector('.products-wrap'),trigger=document.querySelector('.products-trigger');
+    const setMega=open=>{products.classList.toggle('open',open);trigger.setAttribute('aria-expanded',String(open))};
+    trigger.addEventListener('click',()=>setMega(!products.classList.contains('open')));
+    products.addEventListener('mouseenter',()=>setMega(true));products.addEventListener('mouseleave',()=>setMega(false));
+    products.addEventListener('focusin',()=>setMega(true));products.addEventListener('focusout',e=>{if(!products.contains(e.relatedTarget))setMega(false)});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')setMega(false)});
+
+    const menuBtn=document.querySelector('.menu-toggle'),mobileNav=document.querySelector('.mobile-nav'),mobileProducts=document.querySelector('.mobile-products-button'),mobileGrid=document.querySelector('.mobile-products-grid');
+    const closeMobile=()=>{mobileNav.classList.remove('open');document.body.classList.remove('menu-open');menuBtn.setAttribute('aria-expanded','false')};
+    menuBtn.addEventListener('click',()=>{const open=!mobileNav.classList.contains('open');mobileNav.classList.toggle('open',open);document.body.classList.toggle('menu-open',open);menuBtn.setAttribute('aria-expanded',String(open))});
+    mobileProducts.addEventListener('click',()=>{const open=!mobileGrid.classList.contains('open');mobileGrid.classList.toggle('open',open);mobileProducts.setAttribute('aria-expanded',String(open))});
+    mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMobile));
+
+    const slides=[...document.querySelectorAll('.hero-slide')],dots=[...document.querySelectorAll('.hero-dot')];let heroIndex=0,heroTimer;
+    const showHero=i=>{heroIndex=(i+slides.length)%slides.length;slides.forEach((s,n)=>s.classList.toggle('active',n===heroIndex));dots.forEach((d,n)=>d.classList.toggle('active',n===heroIndex));typeof revealActiveHeroCopy==='function'&&revealActiveHeroCopy()};
+    const startHero=()=>{if(!reduce){clearInterval(heroTimer);heroTimer=setInterval(()=>showHero(heroIndex+1),6500)}};
+    document.querySelector('.hero-next').addEventListener('click',()=>{showHero(heroIndex+1);startHero()});document.querySelector('.hero-prev').addEventListener('click',()=>{showHero(heroIndex-1);startHero()});dots.forEach((d,i)=>d.addEventListener('click',()=>{showHero(i);startHero()}));document.querySelector('.hero').addEventListener('mouseenter',()=>clearInterval(heroTimer));document.querySelector('.hero').addEventListener('mouseleave',startHero);startHero();
+
+    const lightbox=document.querySelector('.lightbox'),lightboxImage=lightbox.querySelector('img');let certCarousel=null;
+    const openLightbox=card=>{lightboxImage.src=card.querySelector('img').src;lightbox.classList.add('open');document.body.style.overflow='hidden';certCarousel?.pause('lightbox')};
+    const closeLightbox=()=>{lightbox.classList.remove('open');document.body.style.overflow='';certCarousel?.resume('lightbox')};
+    lightbox.querySelector('button').addEventListener('click',closeLightbox);lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lightbox.classList.contains('open'))closeLightbox()});
+
+    function createCertificateCarousel(track,originals,{reduceMotion=false,onOpen}={}){
+      const AUTOPLAY_MS=3800;
+      const panel=track.closest('.cert-panel'),previousButton=panel.querySelector('.cert-prev'),nextButton=panel.querySelector('.cert-next'),status=track.querySelector('.cert-status');
+      if(reduceMotion||originals.length<2){
+        const scroll=direction=>track.scrollBy({left:direction*track.clientWidth*.65,behavior:'smooth'});
+        previousButton.addEventListener('click',()=>scroll(-1));nextButton.addEventListener('click',()=>scroll(1));
+        originals.forEach(card=>card.addEventListener('click',()=>onOpen?.(card)));
+        return{next:()=>scroll(1),previous:()=>scroll(-1),pause:()=>{},resume:()=>{},destroy:()=>{}};
+      }
+      const count=originals.length,makeClone=original=>{const clone=original.cloneNode(true);clone.dataset.carouselClone='';clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;clone.removeAttribute('data-edit-image');clone.querySelectorAll('[data-edit-image]').forEach(node=>node.removeAttribute('data-edit-image'));return clone};
+      const before=document.createDocumentFragment(),after=document.createDocumentFragment();originals.forEach(card=>before.append(makeClone(card)));originals.forEach(card=>after.append(makeClone(card)));track.insertBefore(before,originals[0]);track.append(after);
+      const cards=[...track.querySelectorAll('.cert-card')];let position=count,timer=0,resumeTimer=0,resetTimer=0,dragging=false,moved=false,startX=0,startPosition=position,currentGap=180,destroyed=false;const pauseReasons=new Set();
+      const render=(announce=false)=>{currentGap=Math.min(248,Math.max(132,track.clientWidth*.29));cards.forEach((card,index)=>{const offset=index-position,absolute=Math.abs(offset),visible=absolute<=1.65,depth=Math.min(1,absolute),scale=1.06-(depth*.2),x=offset*currentGap,z=120-(depth*150),rotation=-Math.sign(offset)*depth*18;card.style.transform=`translate3d(calc(-50% + ${x}px),-50%,${z}px) rotateY(${rotation}deg) scale(${scale})`;card.style.opacity=visible?String(Math.max(.54,1-(absolute*.26))):'0';card.style.filter=`brightness(${1-(depth*.17)}) saturate(${1-(depth*.12)})`;card.style.zIndex=String(20-Math.round(absolute*5));const active=absolute<.34,adjacent=!active&&absolute<1.35;card.classList.toggle('is-active',active);card.classList.toggle('is-adjacent',adjacent);card.style.pointerEvents=active||adjacent?'auto':'none';if(card.dataset.carouselClone!==undefined)card.tabIndex=-1;else card.tabIndex=active?0:-1;card.setAttribute('aria-current',active&&card.dataset.carouselClone===undefined?'true':'false')});if(announce&&status){const logical=((Math.round(position)-count)%count+count)%count;status.textContent=`Certificate ${logical+1} of ${count}`}};
+      const normalize=()=>{window.clearTimeout(resetTimer);resetTimer=window.setTimeout(()=>{while(position>=count*2)position-=count;while(position<=0)position+=count;track.classList.add('is-resetting');render();requestAnimationFrame(()=>track.classList.remove('is-resetting'))},800)};
+      const schedule=()=>{window.clearTimeout(timer);if(destroyed||pauseReasons.size)return;timer=window.setTimeout(()=>{moveTo(Math.round(position)+1,false);schedule()},AUTOPLAY_MS)};
+      const pause=reason=>{pauseReasons.add(reason);window.clearTimeout(timer);window.clearTimeout(resumeTimer)};
+      const resume=reason=>{pauseReasons.delete(reason);window.clearTimeout(resumeTimer);if(!pauseReasons.size)resumeTimer=window.setTimeout(schedule,900)};
+      const moveTo=(target,announce=true)=>{position=target;render(announce);normalize();if(announce){window.clearTimeout(timer);schedule()}};
+      const moveBy=(amount,announce=true)=>moveTo(Math.round(position)+amount,announce);
+      previousButton.addEventListener('click',()=>moveBy(-1));nextButton.addEventListener('click',()=>moveBy(1));
+      track.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'){event.preventDefault();moveBy(-1)}if(event.key==='ArrowRight'){event.preventDefault();moveBy(1)}});
+      track.addEventListener('mouseenter',()=>pause('hover'));track.addEventListener('mouseleave',()=>resume('hover'));track.addEventListener('focusin',()=>pause('focus'));track.addEventListener('focusout',event=>{if(!track.contains(event.relatedTarget))resume('focus')});
+      track.addEventListener('pointerdown',event=>{if(event.button!==0)return;dragging=true;moved=false;startX=event.clientX;startPosition=position;pause('drag');track.classList.add('dragging');track.setPointerCapture(event.pointerId)});
+      track.addEventListener('pointermove',event=>{if(!dragging)return;const delta=event.clientX-startX;if(Math.abs(delta)>5)moved=true;position=startPosition-(delta/currentGap);render()});
+      const finishDrag=event=>{if(!dragging)return;dragging=false;track.classList.remove('dragging');if(track.hasPointerCapture?.(event.pointerId))track.releasePointerCapture(event.pointerId);moveTo(Math.round(position),true);window.setTimeout(()=>{moved=false},0);resume('drag')};
+      track.addEventListener('pointerup',finishDrag);track.addEventListener('pointercancel',finishDrag);
+      cards.forEach((card,index)=>card.addEventListener('click',event=>{if(moved){event.preventDefault();event.stopPropagation();return}const offset=index-position;if(Math.abs(offset)>.34){moveTo(index,true);return}onOpen?.(card)}));
+      const onVisibility=()=>document.hidden?pause('visibility'):resume('visibility'),onResize=()=>render();document.addEventListener('visibilitychange',onVisibility);window.addEventListener('resize',onResize);render();schedule();
+      return{next:()=>moveBy(1),previous:()=>moveBy(-1),pause,resume,destroy:()=>{destroyed=true;window.clearTimeout(timer);window.clearTimeout(resumeTimer);window.clearTimeout(resetTimer);document.removeEventListener('visibilitychange',onVisibility);window.removeEventListener('resize',onResize)}};
+    }
+    const track=document.querySelector('.cert-track'),certCards=[...track.querySelectorAll('.cert-card')];certCarousel=createCertificateCarousel(track,certCards,{reduceMotion:reduce,onOpen:openLightbox});
+
+    function createShowroomMarquee(viewport,track,{reduceMotion=false}={}){
+      const compact=matchMedia('(max-width:720px)');
+      const speed=compact.matches?62:98;
+      if(reduceMotion)return{pause:()=>{},resume:()=>{},destroy:()=>{}};
+      const originals=[...track.querySelectorAll('.support-card')],clones=originals.map(original=>{const clone=original.cloneNode(true);clone.dataset.marqueeClone='';clone.setAttribute('aria-hidden','true');clone.tabIndex=-1;clone.removeAttribute('data-edit-image');clone.querySelectorAll('[data-edit-image]').forEach(node=>node.removeAttribute('data-edit-image'));clone.querySelectorAll('a,button,input,select,textarea,[tabindex]').forEach(node=>node.tabIndex=-1);track.append(clone);return clone});
+      const pauseReasons=new Set();let currentSpeed=speed,cycleWidth=1,offset=0,lastTime=0,frameId=0,destroyed=false;
+      const measure=()=>{const first=originals[0],repeat=clones[0];if(!first||!repeat)return;cycleWidth=Math.max(1,repeat.offsetLeft-first.offsetLeft);offset%=cycleWidth;track.style.transform=`translate3d(${-offset}px,0,0)`};
+      const frame=time=>{if(destroyed)return;if(!lastTime)lastTime=time;const delta=Math.min(64,time-lastTime);lastTime=time;if(!pauseReasons.size&&cycleWidth>1){offset=(offset+(currentSpeed*delta/1000))%cycleWidth;track.style.transform=`translate3d(${-offset}px,0,0)`}frameId=requestAnimationFrame(frame)};
+      const pause=reason=>pauseReasons.add(reason),resume=reason=>{pauseReasons.delete(reason);lastTime=0};
+      viewport.addEventListener('mouseenter',()=>pause('hover'));viewport.addEventListener('mouseleave',()=>resume('hover'));viewport.addEventListener('focusin',()=>pause('focus'));viewport.addEventListener('focusout',event=>{if(!viewport.contains(event.relatedTarget))resume('focus')});
+      const onVisibility=()=>document.hidden?pause('visibility'):resume('visibility');document.addEventListener('visibilitychange',onVisibility);
+      const observer=new IntersectionObserver(entries=>{entries[0]?.isIntersecting?resume('viewport'):pause('viewport')},{rootMargin:'120px 0px',threshold:.05});observer.observe(viewport);
+      const onResize=()=>{currentSpeed=compact.matches?62:98;measure()};window.addEventListener('resize',onResize);window.addEventListener('load',measure,{once:true});
+      measure();frameId=requestAnimationFrame(frame);
+      return{pause,resume,destroy:()=>{destroyed=true;cancelAnimationFrame(frameId);observer.disconnect();document.removeEventListener('visibilitychange',onVisibility);window.removeEventListener('resize',onResize)}};
+    }
+    const showroomViewport=document.querySelector('[data-showroom-marquee]'),showroomTrack=showroomViewport?.querySelector('.support-grid');const showroomMarquee=showroomViewport&&showroomTrack?createShowroomMarquee(showroomViewport,showroomTrack,{reduceMotion:reduce}):null;
+
+    const strength=document.querySelector('.strength-scroll'),steps=[...document.querySelectorAll('.metric-step')],progressDots=[...document.querySelectorAll('.progress-dot')];let activeMetric=0,metricTimer=null;
+    const animateNumber=(step,index)=>{const span=step.querySelector('.metric-number span'),target=Number(step.dataset.value);if(reduce){span.textContent=target.toLocaleString('en-US');return}const start=performance.now(),duration=650;const frame=t=>{const p=Math.min(1,(t-start)/duration),v=Math.round(target*(1-Math.pow(1-p,3)));span.textContent=v.toLocaleString('en-US');if(p<1)requestAnimationFrame(frame)};requestAnimationFrame(frame)};
+    const setMetric=i=>{if(i===activeMetric&&steps[i].classList.contains('active'))return;activeMetric=i;steps.forEach((s,n)=>{s.classList.toggle('active',n===i);s.classList.toggle('before',n<i)});progressDots.forEach((d,n)=>d.classList.toggle('active',n===i));animateNumber(steps[i],i)};
+    const startMetricAuto=()=>{if(reduce)return;clearInterval(metricTimer);metricTimer=setInterval(()=>setMetric((activeMetric+1)%steps.length),4200)};startMetricAuto();document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(metricTimer);else startMetricAuto()});
+
+    const editorKey='dawn-home-framework-v6-r3-edits',editorBtn=document.querySelector('.editor-toggle'),panel=document.querySelector('.editor-panel'),x=document.querySelector('.edit-x'),y=document.querySelector('.edit-y'),z=document.querySelector('.edit-z');let editMode=false,selectedImage=null;const saved=JSON.parse(localStorage.getItem(editorKey)||'{}');
+    const imageTargets=[...document.querySelectorAll('[data-edit-image]')],textTargets=[...document.querySelectorAll('[data-edit-text]')];
+    const imageKey=el=>'img-'+imageTargets.indexOf(el),textKey=el=>'text-'+textTargets.indexOf(el);const save=()=>{const data={};imageTargets.forEach(el=>data[imageKey(el)]={x:el.dataset.x||50,y:el.dataset.y||50,z:el.dataset.z||100});textTargets.forEach(el=>data[textKey(el)]=el.innerHTML);localStorage.setItem(editorKey,JSON.stringify(data))};
+    const applyImage=el=>{const px=el.dataset.x||50,py=el.dataset.y||50,pz=el.dataset.z||100;if(el.tagName==='IMG'){el.style.objectPosition=`${px}% ${py}%`;el.style.transform=`scale(${pz/100})`}else{el.style.backgroundPosition=`${px}% ${py}%`;el.style.backgroundSize=pz>100?`${pz}% auto`:''}}
+    imageTargets.forEach(el=>{const d=saved[imageKey(el)];if(d){Object.assign(el.dataset,d);applyImage(el)}el.addEventListener('click',e=>{if(!editMode)return;e.preventDefault();e.stopPropagation();imageTargets.forEach(i=>i.classList.remove('editing-image'));selectedImage=el;el.classList.add('editing-image');x.value=el.dataset.x||50;y.value=el.dataset.y||50;z.value=el.dataset.z||100;document.querySelector('.out-x').value=x.value;document.querySelector('.out-y').value=y.value;document.querySelector('.out-z').value=z.value})});textTargets.forEach(el=>{const d=saved[textKey(el)];if(d)el.innerHTML=d;el.addEventListener('input',save)});
+    editorBtn.addEventListener('click',()=>{editMode=!editMode;document.body.classList.toggle('edit-mode',editMode);editorBtn.textContent=editMode?'退出并保存':'开启编辑模式';textTargets.forEach(el=>el.contentEditable=String(editMode));if(!editMode){imageTargets.forEach(i=>i.classList.remove('editing-image'));save()}});
+    [x,y,z].forEach(control=>control.addEventListener('input',()=>{if(!selectedImage)return;selectedImage.dataset.x=x.value;selectedImage.dataset.y=y.value;selectedImage.dataset.z=z.value;applyImage(selectedImage);document.querySelector('.out-x').value=x.value;document.querySelector('.out-y').value=y.value;document.querySelector('.out-z').value=z.value;save();typeof scheduleMotionRefresh==='function'&&scheduleMotionRefresh()}));document.querySelector('.editor-reset').addEventListener('click',()=>{if(confirm('清除本浏览器保存的全部文字和图片位置修改？')){localStorage.removeItem(editorKey);location.reload()}});
+  })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>
+  let motionRefreshTimer=0;
+  function scheduleMotionRefresh(){if(!window.ScrollTrigger)return;window.clearTimeout(motionRefreshTimer);motionRefreshTimer=window.setTimeout(()=>ScrollTrigger.refresh(),160)}
+  function revealActiveHeroCopy(){
+    if(!window.gsap||document.body.classList.contains('motion-disabled'))return;
+    const targets=document.querySelectorAll('.hero-slide.active .hero-copy > *');if(!targets.length)return;
+    gsap.killTweensOf(targets);
+    gsap.fromTo(targets,{y:54,opacity:0,filter:'blur(7px)'},{y:0,opacity:1,filter:'blur(0px)',duration:.85,stagger:.1,ease:'power4.out',overwrite:true});
+  }
+  function initCinematicMotion(){
+    const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce||!window.gsap||!window.ScrollTrigger){document.body.classList.add('motion-disabled');return}
+    gsap.registerPlugin(ScrollTrigger);
+    document.body.classList.add('motion-ready');
+    const mm=gsap.matchMedia();
+    mm.add('(min-width: 1024px)',()=>initDesktopMotion());
+    mm.add('(max-width: 1023px)',()=>initCompactMotion());
+    window.addEventListener('load',scheduleMotionRefresh,{once:true});
+    window.addEventListener('resize',scheduleMotionRefresh);
+  }
+  function buildHeroMotion(compact=false){
+    const hero=document.querySelector('.hero');if(!hero)return;
+    gsap.from('.site-header',{y:-24,opacity:0,duration:.8,ease:'power3.out'});
+    gsap.from('.hero-slide.active .hero-copy > *',{y:compact?46:70,opacity:0,filter:'blur(8px)',duration:1,stagger:.12,ease:'power4.out'});
+    gsap.timeline({scrollTrigger:{trigger:'.hero',start:compact?'top top+=70':'top top+=78',end:compact?'bottom top+=70':'bottom top+=78',scrub:1}})
+      .to('.hero-slide.active .hero-media',{scale:compact?1.06:1.12,yPercent:compact?3:6,ease:'none'},0)
+      .to('.hero-slide.active .hero-copy',{yPercent:compact?-10:-18,opacity:0,ease:'none'},0);
+  }
+  function buildCategoryChapter(compact=false){
+    const section=document.querySelector('.categories');if(!section)return;
+    const cards=gsap.utils.toArray('.category-card');
+    gsap.timeline({scrollTrigger:{trigger:section,start:compact?'top 88%':'top 78%',toggleActions:'play none none reverse'}})
+      .from('.categories .section-intro',{y:compact?38:58,opacity:0,duration:.55,ease:'power3.out'})
+      .from(cards,{y:compact?42:70,rotationX:compact?0:8,transformOrigin:'50% 100%',opacity:0,stagger:.08,duration:.82,ease:'power4.out'},.12);
+  }
+  function buildWallChapter(compact=false){
+    if(!document.querySelector('.wall-feature'))return;
+    if(compact){gsap.from('.wall-copy > *',{y:58,opacity:0,duration:.8,stagger:.1,ease:'power3.out',scrollTrigger:{trigger:'.wall-feature',start:'top 84%',toggleActions:'play none none reverse'}});return}
+    gsap.timeline({scrollTrigger:{trigger:'.wall-feature',start:'top top+=78',end:'+=90%',pin:true,scrub:1,anticipatePin:1}})
+      .to('.wall-feature',{'--motion-scale':1,ease:'none'},0)
+      .from('.wall-copy > *',{y:80,opacity:0,filter:'blur(10px)',clipPath:'inset(0 0 100% 0)',stagger:.12,duration:.55},.08);
+  }
+  function revealMotion(targets,options={}){
+    const elements=gsap.utils.toArray(targets);if(!elements.length)return;
+    const trigger=options.trigger||elements[0];
+    const vars={y:options.y??64,opacity:0,duration:options.duration??.9,stagger:options.stagger??.1,ease:'power3.out',scrollTrigger:{trigger,start:options.start||'top 86%',toggleActions:'play none none reverse'}};
+    if(options.filter)vars.filter=options.filter;if(options.rotation!==undefined)vars.rotation=options.rotation;
+    gsap.from(elements,vars);
+  }
+  function buildTechnologyMotion(compact=false){
+    revealMotion('.technology .section-intro > *',{y:compact?48:70});
+    revealMotion('.tech-card',{y:compact?52:90,stagger:compact?.07:.11});
+    if(!compact)gsap.utils.toArray('.tech-card img').forEach(image=>gsap.fromTo(image,{yPercent:5},{yPercent:-5,ease:'none',scrollTrigger:{trigger:image,start:'top bottom',end:'bottom top',scrub:.8}}));
+  }
+  function buildProofMotion(compact=false){
+    revealMotion('.proof .section-intro > *',{y:compact?48:70});
+    revealMotion('.proof-layout > *',{y:compact?58:100,stagger:.14});
+    revealMotion('.cert-track',{y:compact?34:52,duration:.82,trigger:'.cert-track'});
+  }
+  function buildWhyMotion(compact=false){
+    if(!compact&&document.querySelector('.why-video'))gsap.to('.why-video',{scale:1.08,yPercent:4,ease:'none',scrollTrigger:{trigger:'.why',start:'top bottom',end:'bottom top',scrub:1}});
+    revealMotion('.why-head > *',{y:compact?48:72,trigger:'.why-head'});
+    revealMotion('.why-item',{y:compact?54:90,stagger:.12,trigger:'.why-grid'});
+  }
+  function buildAboutMotion(compact=false){
+    if(!document.querySelector('.about'))return;
+    gsap.from('.about',{clipPath:compact?'inset(4% 0 4% 0)':'inset(8% 3% 8% 3%)',duration:1.1,ease:'power3.out',scrollTrigger:{trigger:'.about',start:'top 82%',toggleActions:'play none none reverse'}});
+    revealMotion('.about-copy > *',{y:compact?52:80,stagger:.1,filter:'blur(8px)',trigger:'.about'});
+    revealMotion('.strength-stage',{y:compact?38:0,duration:1,trigger:'.strength-section',start:'top 72%'});
+  }
+  function buildClosingMotion(compact=false){
+    revealMotion('.contact-row > *',{y:compact?62:110,stagger:.14,trigger:'.contact-band',start:'top 82%'});
+    revealMotion('footer .wrap > *',{y:compact?24:36,stagger:.06,duration:.7,trigger:'footer',start:'top 90%'});
+  }
+  function initDesktopMotion(){return gsap.context(()=>{buildHeroMotion(false);buildCategoryChapter(false);buildWallChapter(false);buildTechnologyMotion(false);buildProofMotion(false);buildWhyMotion(false);buildAboutMotion(false);buildClosingMotion(false)})}
+  function initCompactMotion(){return gsap.context(()=>{buildHeroMotion(true);buildCategoryChapter(true);buildWallChapter(true);buildTechnologyMotion(true);buildProofMotion(true);buildWhyMotion(true);buildAboutMotion(true);buildClosingMotion(true)})}
+  try{initCinematicMotion()}catch(error){document.body.classList.remove('motion-ready');document.body.classList.add('motion-disabled');console.warn('Cinematic motion disabled:',error)}
+  </script>
+</body>
+</html>
