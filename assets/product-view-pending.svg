@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">DAWN product view pending</title>
+  <desc id="desc">A neutral placeholder for a product image that will be supplied later.</desc>
+  <rect width="1000" height="1000" fill="#f3f6f9"/>
+  <path d="M328 610c0-116 69-220 172-267 103 47 172 151 172 267" fill="none" stroke="#d5e0ec" stroke-width="18"/>
+  <path d="M393 610h214" stroke="#1267ff" stroke-width="12" stroke-linecap="round"/>
+  <text x="500" y="700" text-anchor="middle" fill="#091529" font-family="Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="8">DAWN</text>
+  <text x="500" y="754" text-anchor="middle" fill="#78879a" font-family="Arial, sans-serif" font-size="20" letter-spacing="4">PRODUCT VIEW PENDING</text>
+</svg>
