@@ -9,9 +9,9 @@
   };
   const point=(title,text,media)=>({title,text,media});
   const shared={
-    flushing:point('Confident Flushing','A tuned water path delivers a complete rinse and dependable discharge for consistent everyday use.','assets/optimized/refresh/technology-flushing.webp'),
-    washing:point('Personalized Washing','Adjustable water temperature, pressure and spray position support comfortable daily care.','assets/optimized/refresh/technology-washing.webp'),
-    seat:point('Four-season Seat Comfort','Adjustable seat temperature keeps the surface comfortably warm through changing seasons.','assets/optimized/refresh/technology-seat.webp'),
+    flushing:point('Confident Flushing','A tuned water path delivers a complete rinse and dependable discharge for consistent everyday use.','assets/optimized/technology-flushing-desktop.webp'),
+    washing:point('Personalized Washing','Adjustable water temperature, pressure and spray position support comfortable daily care.','assets/optimized/technology-washing-desktop.webp'),
+    seat:point('Four-season Seat Comfort','Adjustable seat temperature keeps the surface comfortably warm through changing seasons.','assets/optimized/technology-seat-desktop.webp'),
     nozzle:point('Hygienic Nozzle Care','Self-cleaning and antimicrobial nozzle care supports a cleaner wash path before and after use.','assets/feature-ag-nozzle.jpg')
   };
   const toiletPoints=(first)=>[first,shared.flushing,shared.washing,shared.seat];
@@ -89,9 +89,9 @@
   products['611B'].image=`${P}611B-white.webp`;
   products['611B'].colorImages={White:`${P}611B-white.webp`,Grey:`${P}611B-white.webp`};
   products['611B'].gallery=refreshedGallery('611B-white.webp');
-  products['806'].sellingPoints[0].media='assets/optimized/refresh/technology-descaling.webp';
-  products['811'].sellingPoints[0].media='assets/optimized/refresh/technology-flushing.webp';
-  products['611B'].sellingPoints[0].media='assets/optimized/refresh/technology-descaling.webp';
+  products['806'].sellingPoints[0].media='assets/optimized/technology-descaling-desktop.webp';
+  products['811'].sellingPoints[0].media='assets/optimized/technology-flushing-desktop.webp';
+  products['611B'].sellingPoints[0].media='assets/optimized/technology-descaling-desktop.webp';
   products['805'].sellingPoints[0].media=`${P}805-orange.webp`;
   products['888B'].sellingPoints[0].media=`${P}888b-white.webp`;
   products['F01-F02'].sellingPoints[0].media=`${P}f01-white.webp`;
