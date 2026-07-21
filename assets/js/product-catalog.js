@@ -1,5 +1,5 @@
 (function(){
-  const P='assets/optimized/products/';
+  const P='assets/optimized/refresh/products/';
   const pending='assets/product-view-pending.svg';
   const imageMap=(model,colors)=>Object.fromEntries(colors.map(([label,file])=>[label,`${P}${model}${file}.webp`]));
   const fiveImages=(images)=>{
@@ -9,9 +9,9 @@
   };
   const point=(title,text,media)=>({title,text,media});
   const shared={
-    flushing:point('Confident Flushing','A tuned water path delivers a complete rinse and dependable discharge for consistent everyday use.','assets/optimized/technology-flushing-desktop.webp'),
-    washing:point('Personalized Washing','Adjustable water temperature, pressure and spray position support comfortable daily care.','assets/optimized/technology-washing-desktop.webp'),
-    seat:point('Four-season Seat Comfort','Adjustable seat temperature keeps the surface comfortably warm through changing seasons.','assets/optimized/technology-seat-desktop.webp'),
+    flushing:point('Confident Flushing','A tuned water path delivers a complete rinse and dependable discharge for consistent everyday use.','assets/optimized/refresh/technology-flushing.webp'),
+    washing:point('Personalized Washing','Adjustable water temperature, pressure and spray position support comfortable daily care.','assets/optimized/refresh/technology-washing.webp'),
+    seat:point('Four-season Seat Comfort','Adjustable seat temperature keeps the surface comfortably warm through changing seasons.','assets/optimized/refresh/technology-seat.webp'),
     nozzle:point('Hygienic Nozzle Care','Self-cleaning and antimicrobial nozzle care supports a cleaner wash path before and after use.','assets/feature-ag-nozzle.jpg')
   };
   const toiletPoints=(first)=>[first,shared.flushing,shared.washing,shared.seat];
@@ -77,11 +77,31 @@
   colorImages={'White':`${P}f01s-white.webp`,'Black':`${P}f01s-black.webp`};
   add({model:'F01S-F02S',name:'F01S / F02S Button & Remote Bidet Seat',series:'Button & Remote Bidet Seats',group:'bidetsButton',category:'bidet-seats',image:`${P}f01s-white.webp`,colorImages,colors:['White','Black'],size:'F01S: 390 × 515 × 115 mm · F02S: 390 × 495 × 115 mm',installation:'Top-mounted seat',configuration:'Manual / Auto',gallery:[`${P}f01s-white.webp`,`${P}f01s-black.webp`,`${P}f02s-white.webp`,`${P}f02s-black.webp`],variants:[{model:'F01S',shape:'V-shaped button panel',size:'390 × 515 × 115 mm'},{model:'F02S',shape:'U-shaped button panel',size:'390 × 495 × 115 mm'}],specifications:bidetSpecs('F01S / F02S',['White','Black'],[['F01S','390 × 515 × 115 mm'],['F02S','390 × 495 × 115 mm']]),mainFeatures:['UV sterilization','Four-season seat temperature','Defecation-assist washing','Female-care washing'],otherFeatures:bidetOtherFeatures('Wireless remote control and portable keys'),sellingPoints:bidetPoints(point('Button & Remote Control','Wireless remote control and direct portable keys offer flexible daily operation.','assets/optimized/products/f01s-white.webp')),first:'Button & Remote Control'});
 
+  const refreshedGallery=(...files)=>fiveImages(files.map((file)=>`${P}${file}`));
+  products['608'].gallery=refreshedGallery('608-gallery-5.webp','608-white.webp');
+  products['806'].gallery=refreshedGallery('806-gallery-5.webp','806-white.webp','806-black.webp','806-grey.webp');
+  products['809'].gallery=refreshedGallery('809-gallery-2.webp','809-white.webp','809-grey.webp');
+  products['810A'].gallery=refreshedGallery('810a-gallery-5.webp','810a-white.webp','810a-grey.webp','810a-silver.webp');
+  products['810B'].gallery=refreshedGallery('810b-gallery-5.webp','810b-white.webp');
+  products['801P'].gallery=refreshedGallery('801p-gallery-1.webp','801p-gallery-2.webp','801p-gallery-3.webp','801p-gallery-4.webp','801p-gallery-5.webp');
+  products['805'].gallery=refreshedGallery('805-gallery-1.webp','805-gallery-2.webp','805-gallery-3.webp','805-gallery-4.webp','805-gallery-5.webp');
+  products['888B'].gallery=refreshedGallery('888b-gallery-5.webp','888b-white.webp','888b-black.webp');
+  products['611B'].image=`${P}611B-white.webp`;
+  products['611B'].colorImages={White:`${P}611B-white.webp`,Grey:`${P}611B-white.webp`};
+  products['611B'].gallery=refreshedGallery('611B-white.webp');
+  products['806'].sellingPoints[0].media='assets/optimized/refresh/technology-descaling.webp';
+  products['811'].sellingPoints[0].media='assets/optimized/refresh/technology-flushing.webp';
+  products['611B'].sellingPoints[0].media='assets/optimized/refresh/technology-descaling.webp';
+  products['805'].sellingPoints[0].media=`${P}805-orange.webp`;
+  products['888B'].sellingPoints[0].media=`${P}888b-white.webp`;
+  products['F01-F02'].sellingPoints[0].media=`${P}f01-white.webp`;
+  products['F01S-F02S'].sellingPoints[0].media=`${P}f01s-white.webp`;
+
   window.DAWN_CATALOG={
     categories:{
-      'one-piece':{slug:'one-piece',title:'One-piece Smart Toilets',eyebrow:'Integrated Bathroom Collection',description:'Sculptural ceramic forms combine intelligent washing, dependable flushing and season-ready comfort.',poster:'assets/optimized/hero-floorstanding-desktop.webp',posterMobile:'assets/optimized/hero-floorstanding-mobile.webp',groups:['onePieceHU','onePieceO']},
-      'wall-hung':{slug:'wall-hung',title:'Wall-hung Smart Toilets',eyebrow:'Space-saving Collection',description:'Concealed installation keeps the floor clear and gives compact bathrooms a lighter architectural profile.',poster:'assets/optimized/hero-wallhung-desktop.webp',posterMobile:'assets/optimized/hero-wallhung-mobile.webp',groups:['wallHung']},
-      'bidet-seats':{slug:'bidet-seats',title:'Intelligent Bidet Seats',eyebrow:'Comfort Upgrade Collection',description:'Add adjustable washing and heated-seat comfort to compatible ceramic toilets with a clear choice of controls.',poster:'assets/optimized/category-bidet-desktop.webp',posterMobile:'assets/optimized/category-bidet-mobile.webp',groups:['bidetsHandle','bidetsButton']}
+      'one-piece':{slug:'one-piece',title:'One-piece Smart Toilets',eyebrow:'Integrated Bathroom Collection',description:'Sculptural ceramic forms combine intelligent washing, dependable flushing and season-ready comfort.',poster:'assets/optimized/refresh/category-hero-one-piece-desktop.webp',posterMobile:'assets/optimized/refresh/category-hero-one-piece-mobile.webp',groups:['onePieceHU','onePieceO']},
+      'wall-hung':{slug:'wall-hung',title:'Wall-hung Smart Toilets',eyebrow:'Space-saving Collection',description:'Concealed installation keeps the floor clear and gives compact bathrooms a lighter architectural profile.',poster:'assets/optimized/refresh/category-hero-wall-hung-desktop.webp',posterMobile:'assets/optimized/refresh/category-hero-wall-hung-mobile.webp',groups:['wallHung']},
+      'bidet-seats':{slug:'bidet-seats',title:'Intelligent Bidet Seats',eyebrow:'Comfort Upgrade Collection',description:'Add adjustable washing and heated-seat comfort to compatible ceramic toilets with a clear choice of controls.',poster:'assets/optimized/refresh/category-hero-bidet-desktop.webp',posterMobile:'assets/optimized/refresh/category-hero-bidet-mobile.webp',groups:['bidetsHandle','bidetsButton']}
     },
     groups:{
       onePieceHU:{title:'H / U White Series',summary:'Calm white and neutral finishes for versatile residential and project bathrooms.',models:['605','608','806','809','810A','810B','811']},
