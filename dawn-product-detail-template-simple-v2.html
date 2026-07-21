@@ -40,6 +40,30 @@
   </main>
   <footer class="footer"><div class="wrap footer-row"><a class="brand" href="dawn-home-framework-v7-motion.html"><img src="assets/optimized/refresh/icons/official-logo.svg" width="45" height="45" alt="DAWN logo">DAWN</a><p>© 2026 DAWN. Product details are subject to confirmed specifications.</p><div class="footer-links"><a href="dawn-product-category.html">Products</a><a href="dawn-home-framework-v7-motion.html#about">Brand</a><a href="mailto:dawn_sanitary@163.com">Email</a></div></div></footer>
   <script>
+    function installImageFallbacks(){
+      const fallbacks={
+        'official-logo.svg':'assets/dawn-logo.png',
+        'finder-wall-hung-desktop.webp':'assets/optimized/category-source-wallhung-desktop.webp','finder-wall-hung-mobile.webp':'assets/optimized/category-source-wallhung-mobile.webp',
+        'finder-floorstanding-desktop.webp':'assets/optimized/category-source-floorstanding-desktop.webp','finder-floorstanding-mobile.webp':'assets/optimized/category-source-floorstanding-mobile.webp',
+        'finder-colorful-desktop.webp':'assets/optimized/category-source-colorful-desktop.webp','finder-colorful-mobile.webp':'assets/optimized/category-source-colorful-mobile.webp',
+        'finder-bidet-desktop.webp':'assets/optimized/category-source-bidet-desktop.webp','finder-bidet-mobile.webp':'assets/optimized/category-source-bidet-mobile.webp'
+      };
+      const applyFallback=image=>{
+        if(!(image instanceof HTMLImageElement)||image.dataset.fallbackApplied)return;
+        const source=image.currentSrc||image.src;
+        const file=source.split('/').pop()?.split('?')[0];
+        const fallback=source.includes('/optimized/refresh/products/')
+          ? source.replace('/optimized/refresh/products/','/optimized/products/')
+          : fallbacks[file];
+        if(!fallback)return;
+        image.dataset.fallbackApplied='true';
+        image.closest('picture')?.querySelectorAll('source').forEach(node=>node.remove());
+        image.src=fallback;
+      };
+      document.addEventListener('error',event=>applyFallback(event.target),true);
+      document.querySelectorAll('img').forEach(image=>{if(image.complete&&!image.naturalWidth)applyFallback(image)});
+    }
+    installImageFallbacks();
     window.addEventListener('DOMContentLoaded',()=>{
       const catalog=window.DAWN_CATALOG;
       const requested=new URLSearchParams(location.search).get('model');

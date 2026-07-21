@@ -157,10 +157,10 @@
 
     /* Approved July layout and delivery refinements. */
     .nav-links{gap:48px}
-    .hero-1 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-1-desktop.webp") type("image/webp"));background-position:center}
-    .hero-2 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-2-desktop.webp") type("image/webp"));background-position:center}
-    .hero-3 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-3-desktop.webp") type("image/webp"));background-position:center}
-    .hero-4 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-4-desktop.webp") type("image/webp"));background-position:center}
+    .hero-1 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-1-desktop.webp") type("image/webp")),url("assets/optimized/hero-wallhung-desktop.webp");background-position:center}
+    .hero-2 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-2-desktop.webp") type("image/webp")),url("assets/optimized/hero-split-wallhung-desktop.webp");background-position:center}
+    .hero-3 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-3-desktop.webp") type("image/webp")),url("assets/optimized/hero-brand-desktop.webp");background-position:center}
+    .hero-4 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-4-desktop.webp") type("image/webp")),url("assets/optimized/hero-floorstanding-desktop.webp");background-position:center}
     .hero-cert{margin:-10px 0 28px;color:#fff;font-size:12px;font-weight:750;letter-spacing:.16em;text-transform:uppercase}
     .hero-2 .hero-copy{align-items:flex-end;text-align:right}.hero-2 .hero-copy>*{max-width:640px}
     .hero-3 .hero-copy{justify-content:flex-end;align-items:center;padding-bottom:72px;text-align:center}
@@ -169,22 +169,22 @@
     .wall-feature:after{z-index:1;pointer-events:none}
     .wall-track{position:absolute;inset:0;z-index:0;display:flex;transition:transform .85s var(--reference-ease);will-change:transform}
     .wall-slide{position:relative;flex:0 0 100%;min-height:inherit;background:center/cover no-repeat}
-    .wall-slide:first-child{background-image:image-set(url("assets/optimized/refresh/wall-feature-wallhung-desktop.webp") type("image/webp"))}
-    .wall-slide:nth-child(2){background-image:image-set(url("assets/optimized/refresh/wall-feature-split-desktop.webp") type("image/webp"))}
+    .wall-slide:first-child{background-image:image-set(url("assets/optimized/refresh/wall-feature-wallhung-desktop.webp") type("image/webp")),url("assets/wallhung-fullscreen-final.jpg")}
+    .wall-slide:nth-child(2){background-image:image-set(url("assets/optimized/refresh/wall-feature-split-desktop.webp") type("image/webp")),url("assets/wallhung-scene.jpg")}
     .wall-copy{z-index:2;height:100%;min-height:inherit}.wall-copy-right{align-items:flex-end;text-align:right}.wall-copy-right>*{max-width:620px}.wall-dots{position:absolute;z-index:4;left:50%;bottom:26px;display:flex;gap:10px;transform:translateX(-50%)}.wall-dot{width:34px;height:3px;border:0;padding:0;background:rgba(255,255,255,.45);cursor:pointer}.wall-dot.active{background:#fff}
     .motion-ready .wall-feature{background-image:none}.motion-ready .wall-feature:before{display:none}
     .proof-layout{min-height:clamp(620px,50vw,780px)}.cert-panel,.oem-panel{height:100%}.oem-panel{position:relative;isolation:isolate;justify-content:flex-end;overflow:hidden;padding:clamp(30px,3vw,50px);background:#13233a;color:#fff}.oem-panel:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(0deg,rgba(3,13,29,.9) 0,rgba(4,17,35,.55) 44%,rgba(4,17,35,.08) 76%)}.oem-media{position:absolute;z-index:-2;inset:0}.oem-media img{width:100%;height:100%;min-height:0;max-height:none;margin:0;padding:0;object-fit:cover}.oem-copy{position:relative;z-index:1;max-width:520px}.oem-panel .panel-copy{color:#e1e8f1}.oem-panel h3{margin-top:0}
     .water-motion{display:none}.why{min-height:clamp(650px,78vh,850px)}.why-icon{width:88px;height:88px}.why-head{margin-bottom:54px}
-    .about{background-image:image-set(url("assets/optimized/refresh/about-desktop.webp") type("image/webp"))}
+    .about{background-image:image-set(url("assets/optimized/refresh/about-desktop.webp") type("image/webp")),url("assets/optimized/about-dawn-desktop.webp")}
     .strength-visual{background:#020b1c}.strength-visual:after{z-index:1}.star-field{position:absolute;z-index:2;inset:-18% -30%;pointer-events:none;opacity:.82;background-image:radial-gradient(circle,rgba(154,221,255,.95) 0 1px,transparent 1.8px),radial-gradient(circle,rgba(90,183,255,.78) 0 1px,transparent 1.7px),radial-gradient(circle,rgba(219,242,255,.86) 0 1.2px,transparent 2px);background-position:0 0,70px 45px,160px 95px;background-size:190px 150px,280px 220px,410px 310px;animation:star-flow 26s linear infinite;will-change:transform}.orbit-planet{position:absolute;z-index:3;right:-4vw;top:50%;width:clamp(360px,42vw,760px);aspect-ratio:1;border-radius:50%;transform:translateY(-50%);overflow:hidden;background:radial-gradient(circle at 32% 27%,rgba(116,202,255,.55),rgba(24,90,164,.38) 26%,rgba(7,34,77,.82) 62%,rgba(1,7,20,.98) 78%);box-shadow:-38px 0 120px rgba(24,126,225,.22),inset -72px -18px 100px rgba(0,4,18,.92);opacity:.88;animation:planet-rotate 24s linear infinite;will-change:transform}.orbit-planet:before{content:"";position:absolute;inset:-7%;border-radius:50%;background:repeating-linear-gradient(98deg,transparent 0 8%,rgba(88,178,245,.13) 9%,transparent 11% 18%),repeating-radial-gradient(ellipse at 45% 50%,transparent 0 7%,rgba(99,192,255,.1) 7.4% 8%,transparent 8.5% 15%);mix-blend-mode:screen}.orbit-planet:after{content:"";position:absolute;left:8%;right:8%;top:48%;height:16%;border:2px solid rgba(117,205,255,.22);border-left-color:transparent;border-right-color:transparent;border-radius:50%;transform:rotate(-10deg);box-shadow:0 0 34px rgba(36,137,225,.16)}.strength-visual .strength-stage,.strength-visual .strength-progress{z-index:4}@keyframes star-flow{to{transform:translate3d(24%,6%,0)}}@keyframes planet-rotate{from{transform:translateY(-50%) rotate(0)}to{transform:translateY(-50%) rotate(360deg)}}
     .orbit-planet{overflow:visible;background:none;box-shadow:none;opacity:1}.orbit-planet:before,.orbit-planet:after{display:none}.nebula-canvas{display:block;width:100%;height:100%;filter:drop-shadow(0 0 22px rgba(38,173,255,.38));mix-blend-mode:screen}.contact-row{align-items:center}.contact-row .btn{align-self:center;margin-bottom:0}.socials{justify-content:center;max-width:150px}.social{width:28px;height:28px;border:0;border-radius:0;font-size:0}.social svg{width:17px;height:17px;fill:currentColor}.social-static{cursor:default}
     @media(max-width:720px){
-      .hero-1 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-1-mobile.webp") type("image/webp"))}.hero-2 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-2-mobile.webp") type("image/webp"))}.hero-3 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-3-mobile.webp") type("image/webp"))}.hero-4 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-4-mobile.webp") type("image/webp"))}
+      .hero-1 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-1-mobile.webp") type("image/webp")),url("assets/optimized/hero-wallhung-mobile.webp")}.hero-2 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-2-mobile.webp") type("image/webp")),url("assets/optimized/hero-split-wallhung-mobile.webp")}.hero-3 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-3-mobile.webp") type("image/webp")),url("assets/optimized/hero-brand-mobile.webp")}.hero-4 .hero-media{background-image:image-set(url("assets/optimized/refresh/hero-4-mobile.webp") type("image/webp")),url("assets/optimized/hero-floorstanding-mobile.webp")}
       .hero-copy,.hero-2 .hero-copy,.hero-3 .hero-copy{justify-content:flex-end;align-items:flex-start;padding-bottom:max(84px,calc(64px + env(safe-area-inset-bottom)));text-align:left}.hero-copy h1{font-size:clamp(40px,12.5vw,58px)}.hero-cert{font-size:9px;letter-spacing:.1em}
       .category-grid{display:flex;height:auto;min-height:0;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.category-card,.category-card:nth-child(1),.category-card:nth-child(2),.category-card:nth-child(3),.category-card:nth-child(4){flex:0 0 82vw;aspect-ratio:3/4;scroll-snap-align:center}.category-card h3{font-size:24px}
-      .wall-feature{min-height:78dvh}.wall-slide:first-child{background-image:image-set(url("assets/optimized/refresh/wall-feature-wallhung-mobile.webp") type("image/webp"))}.wall-slide:nth-child(2){background-image:image-set(url("assets/optimized/refresh/wall-feature-split-mobile.webp") type("image/webp"))}.wall-copy,.wall-copy-right{justify-content:flex-end;align-items:flex-start;padding:0 0 90px;text-align:left}.wall-copy h2{font-size:clamp(40px,12vw,56px)}.wall-copy p{font-size:14px}
+      .wall-feature{min-height:78dvh}.wall-slide:first-child{background-image:image-set(url("assets/optimized/refresh/wall-feature-wallhung-mobile.webp") type("image/webp")),url("assets/wallhung-fullscreen-final.jpg")}.wall-slide:nth-child(2){background-image:image-set(url("assets/optimized/refresh/wall-feature-split-mobile.webp") type("image/webp")),url("assets/wallhung-scene.jpg")}.wall-copy,.wall-copy-right{justify-content:flex-end;align-items:flex-start;padding:0 0 90px;text-align:left}.wall-copy h2{font-size:clamp(40px,12vw,56px)}.wall-copy p{font-size:14px}
       .proof-layout{min-height:0}.oem-panel{min-height:78dvh;padding:30px 22px}.oem-media img{object-position:center}.oem-copy{padding-bottom:10px}.why{min-height:100dvh;padding:62px 0}.why-head{margin-bottom:34px}.why-head h2{font-size:clamp(38px,11vw,50px)}.why-grid{gap:28px}.why-icon{width:62px;height:62px;margin-bottom:10px}.why-item h3{font-size:19px;margin-bottom:6px}.why-item p{font-size:12px;line-height:1.45}
-      .about{min-height:100dvh;background-image:image-set(url("assets/optimized/refresh/about-mobile.webp") type("image/webp"));background-position:center}.about-copy{padding-bottom:max(96px,calc(76px + env(safe-area-inset-bottom)))}.about-copy h2{font-size:clamp(42px,13vw,58px)}.about-copy p{font-size:13px;line-height:1.55}.about-copy .btn{margin-top:10px}
+      .about{min-height:100dvh;background-image:image-set(url("assets/optimized/refresh/about-mobile.webp") type("image/webp")),url("assets/optimized/about-dawn-mobile.webp");background-position:center}.about-copy{padding-bottom:max(96px,calc(76px + env(safe-area-inset-bottom)))}.about-copy h2{font-size:clamp(42px,13vw,58px)}.about-copy p{font-size:13px;line-height:1.55}.about-copy .btn{margin-top:10px}
       .strength-visual{min-height:66dvh;background:#020b1c}.star-field{opacity:.42;animation-duration:34s;background-size:270px 220px,390px 320px,560px 430px}.orbit-planet{right:-26vw;top:45%;width:118vw;opacity:.9;animation-duration:32s}
       .contact-row{gap:18px;align-items:center}.contact-row .btn{align-self:center;margin:0}.contact-band{padding:58px 0}.social{width:26px;height:26px}
     }
@@ -279,6 +279,35 @@
   <aside class="editor-panel" aria-label="Visual editor"><strong>图片位置调整</strong><p class="editor-note">点击页面中的图片区域后调整。文字可直接点击输入，修改自动保存在本浏览器。</p><label>X 位置<input class="edit-x" type="range" min="0" max="100" value="50"><output class="out-x">50</output></label><label>Y 位置<input class="edit-y" type="range" min="0" max="100" value="50"><output class="out-y">50</output></label><label>缩放<input class="edit-z" type="range" min="100" max="150" value="100"><output class="out-z">100</output></label><button class="editor-reset" type="button">清除本机编辑</button></aside>
 
   <script>
+    function installImageFallbacks(){
+      const fallbacks={
+        'official-logo.svg':'assets/dawn-logo.png','design.svg':'assets/icon-design.svg','green.svg':'assets/icon-green.svg','quality.svg':'assets/icon-quality.svg',
+        'finder-wall-hung-desktop.webp':'assets/optimized/category-source-wallhung-desktop.webp','finder-wall-hung-mobile.webp':'assets/optimized/category-source-wallhung-mobile.webp',
+        'finder-floorstanding-desktop.webp':'assets/optimized/category-source-floorstanding-desktop.webp','finder-floorstanding-mobile.webp':'assets/optimized/category-source-floorstanding-mobile.webp',
+        'finder-colorful-desktop.webp':'assets/optimized/category-source-colorful-desktop.webp','finder-colorful-mobile.webp':'assets/optimized/category-source-colorful-mobile.webp',
+        'finder-bidet-desktop.webp':'assets/optimized/category-source-bidet-desktop.webp','finder-bidet-mobile.webp':'assets/optimized/category-source-bidet-mobile.webp',
+        'technology-descaling.webp':'assets/optimized/technology-descaling-desktop.webp','technology-flushing.webp':'assets/optimized/technology-flushing-desktop.webp',
+        'technology-washing.webp':'assets/optimized/technology-washing-desktop.webp','technology-seat.webp':'assets/optimized/technology-seat-desktop.webp',
+        'certificate-01.webp':'assets/certificate-new-01.jpg','oem-odm.webp':'assets/optimized/oem-odm-desktop.webp',
+        'support-1.webp':'assets/factory-card-01-final.jpg','support-2.webp':'assets/factory-card-02-final.jpg','support-3.webp':'assets/factory-card-03-final.jpg',
+        'support-4.webp':'assets/factory-card-01-final.jpg','support-5.webp':'assets/factory-card-03-final.jpg'
+      };
+      const applyFallback=image=>{
+        if(!(image instanceof HTMLImageElement)||image.dataset.fallbackApplied)return;
+        const source=image.currentSrc||image.src;
+        const file=source.split('/').pop()?.split('?')[0];
+        const fallback=source.includes('/optimized/refresh/products/')
+          ? source.replace('/optimized/refresh/products/','/optimized/products/')
+          : fallbacks[file];
+        if(!fallback)return;
+        image.dataset.fallbackApplied='true';
+        image.closest('picture')?.querySelectorAll('source').forEach(node=>node.remove());
+        image.src=fallback;
+      };
+      document.addEventListener('error',event=>applyFallback(event.target),true);
+      document.querySelectorAll('img').forEach(image=>{if(image.complete&&!image.naturalWidth)applyFallback(image)});
+    }
+    installImageFallbacks();
   (()=>{
     const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
     const products=document.querySelector('.products-wrap'),trigger=document.querySelector('.products-trigger');
